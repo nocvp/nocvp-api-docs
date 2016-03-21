@@ -64,7 +64,8 @@ isPoster | boolean | must be true for asset or category poster uploading.
 category | string | Asset category id if required when category poster uploading.
 asset | string | Asset id if required when asset poster uploading.
 privacy | string | PUBLIC or PRIVATE.
-templateGroupOptions | object | templateGroupOptions.
+templateGroupOptions | <a href="/?shell#template-group-options-structure">templateGroupOptions</a> | overriding 
+                                                                                                  template group options
 templates | array | Template group ids.
 
 #### Response Parameters
@@ -136,7 +137,8 @@ Parameter | Default | Description
 --------- | ------- | -----------
 url | mixed | youtube, daily motion, direct url ...etc
 privacy | string | PUBLIC or PRIVATE.
-templateGroupOptions | object | templateGroupOptions.
+templateGroupOptions | <a href="/?shell#template-group-options-structure">templateGroupOptions</a> | overriding 
+template group options
 templates | array | Template group ids.
 
 #### Response Parameters
@@ -167,7 +169,67 @@ curl 'your upload url' -X POST
 }
 ```
 
+#### Response Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+success | boolean | 1|0
+title | mixed | Asset Title
+detail.id | mixed | Asset Id
+detail.sid | mixed | Asset Short Id
+
 ## Create Live Stream
 
 ## Create Live Event
 
+# Models
+
+## Template Group Options Structure
+
+```json
+{
+        "prefixAssetSid" : "xqwe32a", 
+        "postfixAssetSid" : "xqwe32q", 
+        "overlayImages" : [
+            {
+                "assetSid" : "xcz243S",
+                "location" : "TOP_LEFT"
+            },
+            {
+                "assetSid" : "xcz243S",
+                "location" : "TOP_RIGHT"
+            }
+        ],
+        "textLine1" : {
+            "backgroundColor" : null,
+            "backgroundImageAssetSid" : "xcvxds21",
+            "opacity" : 0.8,
+            "fontColor" : "pink",
+            "text" : "This should be seen on the video 111."
+        },
+        "textLine2" : {
+            "backgroundColor" : null,
+            "backgroundImageAssetSid" : "xcvxds21",
+            "opacity" : 0.8,
+            "fontColor" : "pink",
+            "text" : "This should be seen on the video 222."
+        }
+    }
+```
+
+Parameter | Default | Description
+--------- | ------- | -----------
+prefixAssetSid | mixed | asset sid for prefix
+postfixAssetSid | mixed | asset sid for postfix
+overlayImages[].assetSid | mixed | image asset sid
+overlayImages[].location | enumerated | TOP_LEFT,TOP_RIGHT,BOTTOM_LEFT,BOTTOM_RIGHT
+textLine1.backgroundColor | mixed | color code
+textLine1.backgroundImageAssetSid | mixed | image asset sid
+textLine1.opacity | float | text opacity between 0.1 - 1
+textLine1.fontColor | mixed | color code
+textLine1.text | mixed | your text here
+textLine2.backgroundColor | mixed | color code
+textLine2.backgroundImageAssetSid | mixed | image asset sid
+textLine2.opacity | float | text opacity between 0.1 - 1
+textLine2.fontColor | mixed | color code
+textLine2.text | mixed | your text here
