@@ -20,6 +20,13 @@ Welcome!
 
 # Authentication
 
+## HTTP Request
+
+`POST http://api.nocvp.com/oauth`
+
+### Query Parameters
+
+
 > To authorize, use this code:
 
 ```shell
@@ -43,14 +50,35 @@ Content-Type: application/json
 }
 ```
 
+```json
+{
+  "access_token": "4cf26d8c6f7baedd69d56c3a1a7a8dcb96bb1234",
+  "expires_in": 3600,
+  "token_type": "Bearer",
+  "scope": null
+}
+```
+
+`Elements in bold are mandatory. Attributes in bold are mandatory only if Element is present, default value is shown after equals sign.`
+
+Parameter | Default | Description
+--------- | ------- | -----------
+<b>grant_type</b> | mixed | only client_credentials allowed
+<b>client_id</b> | mixed | your client id
+<b>client_secret</b> | mixed | your client secret
+
+### Response Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+access_token | mixed | access token
+expires_in | mixed | expires seconds
+token_type | mixed | Token type is only Bearer supported
+scope | null | not implemented
+
 
 NOCVP uses API keys to allow access to the API. You can register a new NOCVP API key at our [dashboard portal](http://dashboard.nocvp.com/).
 
 NOCVP expects for the API key to be included in all API requests to the server in a header that looks like the following:
 
-`Authorization: nocvpapikey`
-
-<aside class="notice">
-You must replace <code>nocvpapikey</code> with your personal API key.
-</aside>
-
+`Authorization: Bearer 4cf26d8c6f7baedd69d56c3a1a7a8dcb96bb1234`
