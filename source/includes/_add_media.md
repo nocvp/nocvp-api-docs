@@ -156,7 +156,7 @@ sid | mixed | Asset Short Id
 ```shell
 curl 'your upload url' -X POST
 -H 'Content-Type: video/mp4'
--H 'Content-Disposition: attachment; filename="your_file.mp4"'
+-H 'Content-Disposition: attachment; filename="your_file.mp4"' -d @your_file.mp4
 ```
 
 > The above command returns JSON structured like this:
