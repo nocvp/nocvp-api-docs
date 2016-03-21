@@ -67,6 +67,12 @@ privacy | string | PUBLIC or PRIVATE.
 templateGroupOptions | object | templateGroupOptions.
 templates | array | Template group ids.
 
+#### Response Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+url | mixed | url for upload
+
 ### Upload by youtube, daily motion, url ..etc
 
 ```shell
@@ -116,10 +122,7 @@ Content-Type: application/json
 ```json
 {
   "sid": "7B994oKn",
-  "id": "56eff00986ec35081a0041a9",
-  "referenceId": null,
-  "referenceUrl": "https://www.youtube.com/watch?v=XXE-I89CG6s",
-  "deliveryStatus": "ACTIVE"
+  "id": "56eff00986ec35081a0041a9"
 }
 ```
 
@@ -135,6 +138,13 @@ url | mixed | youtube, daily motion, direct url ...etc
 privacy | string | PUBLIC or PRIVATE.
 templateGroupOptions | object | templateGroupOptions.
 templates | array | Template group ids.
+
+#### Response Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+id | mixed | Asset Id
+sid | mixed | Asset Short Id
 
 ## Upload Your File
 
