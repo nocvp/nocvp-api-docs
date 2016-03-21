@@ -3,21 +3,13 @@ title: NOCVP API Reference
 
 language_tabs:
   - shell
+  - http
 
 toc_footers:
   - <a href='http://dashboard.nocvp.com/'>Dashboard</a>
 
 includes:
   - add_media
-  - asset
-  - category
-  - playlist
-  - player
-  - template_group
-  - advertisement
-  - user
-  - client
-  - errors
 
 search: true
 ---
@@ -32,11 +24,25 @@ Welcome!
 
 ```shell
 # With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: nocvpapikey"
+curl -X POST -H "Content-Type: application/json" -d '{
+    "grant_type": "client_credentials",
+    "client_id": "your client id",
+    "client_secret": "your client secret"
+}' "http://api.nocvp.com/oauth"
 ```
 
-> Make sure to replace `nocvpapikey` with your API key.
+```http
+POST /oauth HTTP/1.1
+Host: api.nocvp.com
+Content-Type: application/json
+
+{
+    "grant_type": "client_credentials",
+    "client_id": "your client id",
+    "client_secret": "your client secret"
+}
+```
+
 
 NOCVP uses API keys to allow access to the API. You can register a new NOCVP API key at our [dashboard portal](http://dashboard.nocvp.com/).
 

@@ -1,51 +1,56 @@
-
 # Add Media
 
-## Upload URL
+## Get Unique Upload URL
 
-### Get Upload URL
+### Upload by Local Storage
+
 ```shell
-curl 'http://api.nocvp.com/v1/upload' -X POST
--H 'Content-Type: application/json;charset=utf-8'
--H 'Authorization: Bearer 2611f787760c1ebcd7e75aa36d22da55069cf1a3'
--d '{"templates":["56e70a8100ddb33d5c8b4b0f"],"privacy":"PUBLIC","category":"55c49e4000ddb315158b7801","templateGroupOptions"
-:{"textLine1":{"text":"Test"},"textLine2":{"text":"Test2"}}}'
+# With shell, you can just pass the correct header with each request
+curl -X POST -H "Authorization: Bearer 6bb258814327c7a9ef0790590d6cc8269c7526ce" -H "Content-Type: application/json" -d '{
+    "privacy": "PUBLIC",
+    "templates": [
+        "552f6c54d67248840f8b4511"
+    ],
+    "templateGroupOptions": {
+        "textLine1" : {
+            "text" : "This should be seen on the video 111."
+        },
+        "textLine2" : {
+            "text" : "This should be seen on the video 222."
+        }
+    }
+}' "http://api.nocvp.com/v1/upload"
+```
+
+```http
+POST /v1/upload HTTP/1.1
+Host: api.nocvp.com
+Authorization: Bearer 6bb258814327c7a9ef0790590d6cc8269c751111
+Content-Type: application/json
+
+{
+    "privacy": "PUBLIC",
+    "templates": [
+        "552f6c54d67248840f8b4511"
+    ],
+    "templateGroupOptions": {
+        "textLine1" : {
+            "text" : "This should be seen on the video 111."
+        },
+        "textLine2" : {
+            "text" : "This should be seen on the video 222."
+        }
+    }
+}
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 {
-   "path":null,
-   "asset":null,
-   "account":{
-      "id":"55546c1c00ddb386548b456a",
-      "playerDomains":null,
-      "deliveryStatus":"ACTIVE"
-   },
-   "client":null,
-   "creationTime":1458309226,
-   "id":"56ec086a00ddb376068b458a",
-   "url":"http://upload.nocvp.com/upload?token=56ec086a00fsb376068b458a",
-   "user":{
-      "id":"55546c1c00ddb386548b456f"
-   },
-   "isPoster":false,
-   "category":{
-      "id":"55c49e4000ddb315158b7801",
-      "title":"Kategori 2"
-   },
-   "templates":[
-      "56e70a8100ddb33d5c8b4b0f"
-   ],
-   "privacy":"PUBLIC",
-   "templateGroupOptions":{
-
-   }
+  "url": "http://upload.nocvp.com/upload?token=56efe5e386ec3526220041a9"
 }
 ```
-
-You must get a new upload url for local file upload.
 
 #### HTTP Request
 
@@ -55,18 +60,88 @@ You must get a new upload url for local file upload.
 
 Parameter | Default | Description
 --------- | ------- | -----------
-category | string | Asset category id.
+isPoster | boolean | must be true for asset or category poster uploading.
+category | string | Asset category id if required when category poster uploading.
+asset | string | Asset id if required when asset poster uploading.
 privacy | string | PUBLIC or PRIVATE.
-templateGroupOptions | hash | templateGroupOptions.
+templateGroupOptions | object | templateGroupOptions.
 templates | array | Template group ids.
 
-
-### Upload Your File
+### Upload by youtube, daily motion, url ..etc
 
 ```shell
-curl 'upload_url' -X POST
+# With shell, you can just pass the correct header with each request
+curl -X POST -H "Authorization: Bearer 6bb258814327c7a9ef0790590d6cc8269c7526ce" -H "Content-Type: application/json" -d '{
+    "url" : "https://www.youtube.com/watch?v=XXE-I89CG6s",
+    "privacy": "PUBLIC",
+    "templates": [
+        "552f6c54d67248840f8b4511"
+    ],
+    "templateGroupOptions": {
+        "textLine1" : {
+            "text" : "This should be seen on the video 111."
+        },
+        "textLine2" : {
+            "text" : "This should be seen on the video 222."
+        }
+    }
+}' "http://api.nocvp.com/v1/upload-from-url"
+```
+
+```http
+POST /v1/upload-from-url HTTP/1.1
+Host: api.nocvp.com
+Authorization: Bearer 6bb258814327c7a9ef0790590d6cc8269c751111
+Content-Type: application/json
+
+{
+    "url" : "https://www.youtube.com/watch?v=XXE-I89CG6s",
+    "privacy": "PUBLIC|PRIVATE",
+    "templates": [
+        "552f6c54d67248840f8b4511"
+    ],
+    "templateGroupOptions": {
+        "textLine1" : {
+            "text" : "This should be seen on the video 111."
+        },
+        "textLine2" : {
+            "text" : "This should be seen on the video 222."
+        }
+    }
+}
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "sid": "7B994oKn",
+  "id": "56eff00986ec35081a0041a9",
+  "referenceId": null,
+  "referenceUrl": "https://www.youtube.com/watch?v=XXE-I89CG6s",
+  "deliveryStatus": "ACTIVE"
+}
+```
+
+#### HTTP Request
+
+`POST http://api.nocvp.com/v1/upload-from-url`
+
+#### Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+url | mixed | youtube, daily motion, direct url ...etc
+privacy | string | PUBLIC or PRIVATE.
+templateGroupOptions | object | templateGroupOptions.
+templates | array | Template group ids.
+
+## Upload Your File
+
+```shell
+curl 'your upload url' -X POST
 -H 'Content-Type: video/mp4'
--H 'Content-Disposition: attachment; filename="yourfile.mp4"'
+-H 'Content-Disposition: attachment; filename="your_file.mp4"'
 ```
 
 > The above command returns JSON structured like this:
@@ -81,11 +156,8 @@ curl 'upload_url' -X POST
    }
 }
 ```
-After you get the upload url, you can directly POST your file to this url.
 
-## Import from Direct URL
+## Create Live Stream
 
-## Create Live Streaming
-
-## Create Event
+## Create Live Event
 
