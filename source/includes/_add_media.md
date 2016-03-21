@@ -58,6 +58,8 @@ Content-Type: application/json
 
 #### Query Parameters
 
+`Elements in bold are mandatory. Attributes in bold are mandatory only if Element is present, default value is shown after equals sign.`
+
 Parameter | Default | Description
 --------- | ------- | -----------
 isPoster | boolean | must be true for asset or category poster uploading.
@@ -132,10 +134,11 @@ Content-Type: application/json
 `POST http://api.nocvp.com/v1/upload-from-url`
 
 #### Query Parameters
+`Elements in bold are mandatory. Attributes in bold are mandatory only if Element is present, default value is shown after equals sign.`
 
 Parameter | Default | Description
 --------- | ------- | -----------
-url | mixed | youtube, daily motion, direct url ...etc
+<b>url</b> | mixed | youtube, daily motion, direct url ...etc
 privacy | string | PUBLIC or PRIVATE.
 templateGroupOptions | <a href="/?shell#template-group-options-structure">templateGroupOptions</a> | overriding 
 template group options
