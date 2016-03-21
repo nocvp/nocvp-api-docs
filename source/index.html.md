@@ -50,6 +50,8 @@ Content-Type: application/json
 }
 ```
 
+> The above command returns JSON structured like this:
+
 ```json
 {
   "access_token": "4cf26d8c6f7baedd69d56c3a1a7a8dcb96bb1234",
