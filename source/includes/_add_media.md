@@ -1,13 +1,14 @@
 # Add Media
+NOCVP supports a couple of media ingestion methods, upload by file and upload by url are the most used ones. In order to upload a file you need to get an upload url with a token first. Then using this upload token in http post request to our upload servers with the contents of the file in the request body. Resumable uploads are also supported.
 
-## Get Unique Upload URL
+## File Upload
 
-### Upload by Local Storage
+### Step 1. Get Upload Url
 
 ```shell
 # With shell, you can just pass the correct header with each request
 curl -X POST -H "Authorization: Bearer 6bb258814327c7a9ef0790590d6cc8269c7526ce" -H "Content-Type: application/json" -d '{
-    "jobStatusCallBackUrl" : "https://your call back url",
+    "jobStatusCallBackUrl" : "https://your_jobs_status_call_back_url",
     "replacesAssetId" : "56efe5e386ec3526220041a9",
     "privacy": "PUBLIC",
     "templates": [
@@ -21,7 +22,7 @@ curl -X POST -H "Authorization: Bearer 6bb258814327c7a9ef0790590d6cc8269c7526ce"
             "text" : "This should be seen on the video 222."
         }
     }
-}' "http://api.nocvp.com/v1/upload"
+}' "https://api.nocvp.com/v1/upload"
 ```
 
 ```http
@@ -82,7 +83,49 @@ Parameter | Default | Description
 --------- | ------- | -----------
 url | mixed | url for upload
 
-### Upload by youtube, daily motion, url ..etc
+### Step 2. Upload the file
+The video can actually be uploaded to the upload url retrieved above by making a POST HTTP request.
+
+```shell
+curl 'your_upload_url_with_token' -X POST
+   -H 'Content-Disposition: attachment; filename="your_file.mp4"' 
+   --data-binary @your_file.mp4
+```
+
+```http
+POST /upload?token=56f2918700ddb349078b5040 HTTP/1.1
+Host: upload.nocvp.com
+Content-Disposition: attachment; filename="your_file.mp4"
+
+<bytes 0-51200>
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+   "success":1,
+   "title":"File uploaded!",
+   "detail":{
+      "id":"56ec1b6400ddb3e5358b457f",
+      "sid":"7B5jdGpt"
+   }
+}
+```
+
+#### Response Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+success | boolean | 1|0
+title | mixed | Asset Title
+detail.id | mixed | Asset Id
+detail.sid | mixed | Asset Short Id
+
+
+
+## Upload By Url
+This method supports fetching from an http server and major video sites like youtube, vimeo, etc.
 
 ```shell
 # With shell, you can just pass the correct header with each request
@@ -163,36 +206,6 @@ Parameter | Default | Description
 id | mixed | Asset Id
 sid | mixed | Asset Short Id
 
-## Upload Your File
-
-```shell
-curl 'your upload url' -X POST
--H 'Content-Type: video/mp4'
--H 'Content-Disposition: attachment; filename="your_file.mp4"' 
---data-binary @your_file.mp4
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-   "success":1,
-   "title":"File uploaded!",
-   "detail":{
-      "id":"56ec1b6400ddb3e5358b457f",
-      "sid":"7B5jdGpt"
-   }
-}
-```
-
-#### Response Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-success | boolean | 1|0
-title | mixed | Asset Title
-detail.id | mixed | Asset Id
-detail.sid | mixed | Asset Short Id
 
 ## Create Live Stream
 
