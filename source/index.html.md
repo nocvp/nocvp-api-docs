@@ -11,6 +11,16 @@ toc_footers:
 includes:
   - general
   - add_media
+  - asset
+  - playlist
+  - category
+  - player
+  - advertisement
+  - template_group
+  - analytics
+  - user
+  - client
+  - models
 
 search: true
 ---

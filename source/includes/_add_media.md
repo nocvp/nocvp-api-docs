@@ -1,5 +1,7 @@
 # Add Media
-NOCVP supports a couple of media ingestion methods, upload by file and upload by url are the most used ones. In order to upload a file you need to get an upload url with a token first. Then using this upload token in http post request to our upload servers with the contents of the file in the request body. Resumable uploads are also supported.
+NOCVP supports a couple of media ingestion methods, upload by file and upload by url are the most used ones. In order to upload a file you need to get an upload url with a token first. Then using this upload token is required while sending http post request to our upload servers with the contents of the file in the request body. Resumable uploads are also supported.
+
+There are some possible options while getting the upload url, please investigate the query parameters below.
 
 ## File Upload
 
@@ -8,7 +10,7 @@ NOCVP supports a couple of media ingestion methods, upload by file and upload by
 ```shell
 # With shell, you can just pass the correct header with each request
 curl -X POST -H "Authorization: Bearer 6bb258814327c7a9ef0790590d6cc8269c7526ce" -H "Content-Type: application/json" -d '{
-    "jobStatusCallBackUrl" : "https://your_jobs_status_call_back_url",
+    "jobStatusCallBackUrl" : "https://your_jobs_status_callBackUrl",
     "replacesAssetId" : "56efe5e386ec3526220041a9",
     "privacy": "PUBLIC",
     "templates": [
@@ -63,12 +65,12 @@ Content-Type: application/json
 
 #### Query Parameters
 
-`Elements in bold are mandatory. Attributes in bold are mandatory only if Element is present, default value is shown after equals sign.`
+`Elements in bold are mandatory. Default value is shown after equals sign.`
 
-Parameter | Default | Description
+Parameter | Type | Description
 --------- | ------- | -----------
-replacesAssetId | valid asset id mixed | if you want replace asset when transcoding completed
-jobStatusCallBackUrl | valid url | your call back url for job status updating
+replacesAssetId | string | this parameter is used to support asset source change, input should be a valid asset id, this asset is going to be replaced by the one you will upload.
+jobStatusCallBackUrl | url | this parameter is used in case you want to receive transcoding job status updates, api will send POST requests with a body indicating the job status. <a href="/?shell#transcoding-job-notification-object-structure"> Check for a sample one</a> .
 isPoster | boolean | must be true for asset or category poster uploading.
 category | string | Asset category id if required when category poster uploading.
 asset | string | Asset id if required when asset poster uploading.
@@ -79,7 +81,7 @@ templates | array | Template group ids.
 
 #### Response Parameters
 
-Parameter | Default | Description
+Parameter | Type | Description
 --------- | ------- | -----------
 url | mixed | url for upload
 
@@ -115,7 +117,7 @@ Content-Disposition: attachment; filename="your_file.mp4"
 
 #### Response Parameters
 
-Parameter | Default | Description
+Parameter | Type | Description
 --------- | ------- | -----------
 success | boolean | 1|0
 title | mixed | Asset Title
@@ -187,12 +189,12 @@ Content-Type: application/json
 `POST http://api.nocvp.com/v1/upload-from-url`
 
 #### Query Parameters
-`Elements in bold are mandatory. Attributes in bold are mandatory only if Element is present, default value is shown after equals sign.`
+`Elements in bold are mandatory.`
 
-Parameter | Default | Description
+Parameter | Type | Description
 --------- | ------- | -----------
-replacesAssetId | valid asset id mixed | if you want replace asset when transcoding completed
-jobStatusCallBackUrl | valid url | your call back url for job status updating
+replacesAssetId | string | this parameter is used to support asset source change and retranscding, input a valid asset id, this asset is going to be replaced by the one you will upload.
+jobStatusCallBackUrl | url | this parameter is used in case you want to receive transcoding job status updates, api will send POST requests with a body indicating the job status. <a href="/?shell#transcoding-job-notification-object-structure"> Check for a sample one</a> .
 <b>url</b> | mixed | youtube, daily motion, direct url ...etc
 privacy | string | PUBLIC or PRIVATE.
 templateGroupOptions | <a href="/?shell#template-group-options-structure">templateGroupOptions</a> | overriding 
@@ -201,7 +203,7 @@ templates | array | Template group ids.
 
 #### Response Parameters
 
-Parameter | Default | Description
+Parameter | Type | Description
 --------- | ------- | -----------
 id | mixed | Asset Id
 sid | mixed | Asset Short Id
@@ -210,55 +212,3 @@ sid | mixed | Asset Short Id
 ## Create Live Stream
 
 ## Create Live Event
-
-# Models
-
-## Template Group Options Structure
-
-```json
-{
-        "prefixAssetSid" : "xqwe32a", 
-        "postfixAssetSid" : "xqwe32q", 
-        "overlayImages" : [
-            {
-                "assetSid" : "xcz243S",
-                "location" : "TOP_LEFT"
-            },
-            {
-                "assetSid" : "xcz243S",
-                "location" : "TOP_RIGHT"
-            }
-        ],
-        "textLine1" : {
-            "backgroundColor" : null,
-            "backgroundImageAssetSid" : "xcvxds21",
-            "opacity" : 0.8,
-            "fontColor" : "pink",
-            "text" : "This should be seen on the video 111."
-        },
-        "textLine2" : {
-            "backgroundColor" : null,
-            "backgroundImageAssetSid" : "xcvxds21",
-            "opacity" : 0.8,
-            "fontColor" : "pink",
-            "text" : "This should be seen on the video 222."
-        }
-    }
-```
-
-Parameter | Default | Description
---------- | ------- | -----------
-prefixAssetSid | mixed | asset sid for prefix
-postfixAssetSid | mixed | asset sid for postfix
-overlayImages[].assetSid | mixed | image asset sid
-overlayImages[].location | enumerated | TOP_LEFT,TOP_RIGHT,BOTTOM_LEFT,BOTTOM_RIGHT
-textLine1.backgroundColor | mixed | color code
-textLine1.backgroundImageAssetSid | mixed | image asset sid
-textLine1.opacity | float | text opacity between 0.1 - 1
-textLine1.fontColor | mixed | color code
-textLine1.text | mixed | your text here
-textLine2.backgroundColor | mixed | color code
-textLine2.backgroundImageAssetSid | mixed | image asset sid
-textLine2.opacity | float | text opacity between 0.1 - 1
-textLine2.fontColor | mixed | color code
-textLine2.text | mixed | your text here

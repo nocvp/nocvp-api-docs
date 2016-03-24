@@ -18,7 +18,7 @@ In order to use NOCVP API you must create an api client and receive the client_i
 The API is accessed by making HTTP requests to endpoint URL, in which GET or POST variables contain information about what you wish to access. Every endpoint is accessed via an SSL-enabled HTTPS (port 443), this is because everything is using OAuth 2.0.
 
 ##Responses
-Each response returns a valid json object or array. In case of api returns array X-Total-Count http header could be checked for the number of objects in the array.
+Each response returns a valid json object or array. In case of api returns array X-Total-Count http header can be checked for the total number of objects could be fetched.
 
 ##Paging Results
 For the most part, if the API action is plural, you can page it via a query string parameter.
@@ -37,6 +37,7 @@ The API requires each client to use OAuth 2 authentication. Oauth 2.0 allows a r
 Successful responses include a JSON-structure describing the awarded Bearer Token.
 
 Finally, after obtaining your access_token, you make your API requests by sending the Authorization header as such:
+
 Authorization: Bearer YOUR_ACCESS_TOKEN
 
 ## Resource URL
@@ -68,7 +69,7 @@ Content-Type: application/json
 }
 ```
 
-`Elements in bold are mandatory. Attributes in bold are mandatory only if Element is present, default value is shown after equals sign.`
+`Elements in bold are mandatory.`
 
 Parameter | Default | Description
 --------- | ------- | -----------
@@ -95,3 +96,37 @@ access_token | mixed | access token
 expires_in | mixed | expires seconds
 token_type | mixed | Token type is only Bearer supported
 scope | null | not implemented
+
+#Error Codes & Responses
+##HTTP Status Codes
+The NOCVP API attempts to return appropriate HTTP status codes for every request.
+
+Code | Text | Description
+-----| ---- | -----------
+200 | OK | Success!
+304 | Not Modified | There was no data to return.
+400 | Bad Request | The request was invalid or cannot be served. An error message will explain further.
+401 | Unauthorized | Authentication credentials are missing or incorrect.
+403 | Forbidden | The request is understood, but it has been refused or access is not allowed. An error message will explain why.
+404 | Not Found | The URI requested is invalid or the resource requested, such as a asset, does not exists.
+429 | Too Many Requests | Returned when a request cannot be served due to the application’s rate limit having been exhausted for the resource.
+500 | Internal Server Error | Something is broken.
+502 | Bad Gateway | API is down or being upgraded.
+503 | Service Unavailable | API servers are up, but overloaded with requests. Try again later.
+504 | Gateway timeout | API servers are up, but the request couldn’t be serviced due to some failure within our stack. Try again later.
+
+##Error Messages
+When the NOCVP API returns error messages, it does so in JSON format. For example, an error might look like on the right side.
+
+```
+{
+  "type": "Bad Request",
+  "title": "Validation Failed",
+  "status": 400,
+  "detail": {
+    "templates": {
+      "isEmpty": "Value is required and can't be empty"
+    }
+  }
+}
+```
