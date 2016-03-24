@@ -11,6 +11,7 @@ toc_footers:
 includes:
   - general
   - add_media
+  - embed
   - asset
   - playlist
   - category
