@@ -22,6 +22,7 @@ includes:
   - user
   - client
   - models
+  - changelog
 
 search: true
 ---

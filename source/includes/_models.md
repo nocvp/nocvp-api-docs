@@ -216,3 +216,136 @@ snapshotCount | string | Specify the total amount of thumnails to be generated, 
 <b>maxWidth</b> | string | Specify the maximum width of the image you need to generate.
 <b>container</b> | string | The container type for the output file. Valid values are jpg, png.
 
+## File Object Structure
+```
+{
+    "id": "56f3f28500ddb372068b5166",
+    "sid": "7Bd9gypt",
+    "type": "IMAGE",
+    "size": 210606,
+    "tags": [],
+    "status": null,
+    "container": "jpg",
+    "contentType": "video/mp4",
+    "creationTime": 1458742871986
+}
+```
+Parameter | Type | Description
+--------- | ------- | -----------
+id | mixed | file reference id
+sid | mixed | file reference short id
+type | enumerated | IMAGE|AUDIO|VIDEO|OTHER
+size | 210606 | file size of bytes
+tags | array | file tags
+status | enumerated | status of file
+container | mixed | file extension mp4, ts, jpg, png, bmp ...etc
+contentType | mixed | file mime type for example: video/mp4, audio/aac, image/jpeg, image/png
+creationTime | long | creation time of milliseconds
+
+## Image File Object Structure (Extends <a href="/?http#file-object-structure">file</a> Object Structure)
+```
+{
+    "width": 640,
+    "height": 360
+}
+```
+Parameter | Type | Description
+--------- | ------- | -----------
+width | integer | image width
+height | integer | image height
+
+## Video File Object Structure (Extends <a href="/?http#file-object-structure">file</a> Object Structure)
+```
+{
+    "width": 854,
+    "height": 480,
+    "audioBitrate": 128,
+    "audioChannels": 2,
+    "audioCodec": "libfdk_aac",
+    "audioSampleRate": 44100,
+    "duration": 287.578333,
+    "frameRate": "29.97",
+    "videoBitrate": 1200,
+    "videoCodec": "libx264"
+}
+```
+Parameter | Type | Description
+--------- | ------- | -----------
+width | integer | video width
+height | integer | video height
+audioBitrate | float | bitrate of audio
+audioChannels | integer | audo channels count 1,2 -> mono stereo
+audioCodec | mixed | codec of audio
+audioSampleRate | float | sample rate of audio for example 44.100
+duration | float | video duration of seconds
+frameRate | float | video frame rate
+videoBitrate | float | bitrate of video
+videoCodec | mixed | codec of video
+
+## Audio File Object Structure (Extends <a href="/?http#file-object-structure">file</a> Object Structure)
+```
+{
+    "audioBitrate": 128,
+    "audioChannels": 2,
+    "audioCodec": "libfdk_aac",
+    "audioSampleRate": 44100,
+    "duration": 287.578333
+}
+```
+Parameter | Type | Description
+--------- | ------- | -----------
+audioBitrate | float | bitrate of audio
+audioChannels | integer | audo channels count 1,2 -> mono stereo
+audioCodec | mixed | codec of audio
+duration | float | video duration of seconds
+audioSampleRate | float | sample rate of audio for example 44.100
+
+## Transcoding Job Object Structure
+```
+{
+    "id": "56f3f28500ddb372068b516d",
+    "template": {
+      "type": "VIDEO",
+      "audioBitrate": "128k",
+      "audioChannels": 2,
+      "audioCodec": "libfdk_aac",
+      "audioSampleRate": 44100,
+      "frameRate": "29.97",
+      "videoBitrate": "1200k",
+      "videoCodec": "libx264",
+      "transmuxToHls": null,
+      "bufferSize": null,
+      "constantRatefactor": null,
+      "fixedNumberOfFramesBetweenKeyframes": null,
+      "maxBitRate": null,
+      "maximumNumberOfFramesBetweenKeyframes": null,
+      "rateControl": "targetBitrate",
+      "videoMaxFrameRate": null,
+      "maxHeight": 480,
+      "maxWidth": 854,
+      "creationTime": 1458742871993,
+      "id": "56f2a65700ddb3e5358b5030",
+      "container": "mp4"
+    },
+    "lastUpdatedTime": 1458828049861,
+    "startTime": 1458827947661,
+    "creationTime": 1458827909503,
+    "errorCode": null,
+    "errorMessage": null,
+    "state": "COMPLETE",
+    "progress": 100,
+    "conversionId": "56f3f28500ddb372068b516c"
+}
+```
+Parameter | Type | Description
+--------- | ------- | -----------
+id | mixed | Transcoding job id
+template | object | <a href="/?http#video-transcoding-template-object-structure">videoConversionTemplate</a>, <a href="/?http#audio-transcoding-template-object-structure">audioConversionTemplate</a> or <a href="/?http#image-transcoding-template-object-structure">imageConversionTemplate</a> object
+creationTime | long | creation time of milliseconds
+startTime | long | job start time of milliseconds
+lastUpdatedTime | long | job updated time of milliseconds
+state | enumerated | (QUEUE,STARTED,PROGRESSING,COMPLETE,WARNING,ERROR,CANCELED,TIMEOUT)
+progress | float | job progressing percentage 0 to 100
+errorCode | mixed | if throws an error
+errorMessage | mixed | if throws an error
+conversionId | mixed | conversion reference id for only completed job
