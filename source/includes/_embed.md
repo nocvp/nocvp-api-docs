@@ -21,15 +21,15 @@ http://{content.nocvp.com}/playlist/{playlistSid}/{playerSid}.[js|html]
 ##Public Asset Embed
 Use the following tags for assets which the privacy is set to PUBLIC.
 
-###With Script Tag
+>With Script Tag
 
-```
+```html
 <script src="http://{content.nocvp.com}/asset/{assetSID}/{playerSID}.js"></script>
 ```
 
-###With Iframe Tag
+>With Iframe Tag
 
-```
+```html
 <iframe src="http://{content.nocvp.com}/asset/{assetSID}/{playerSID}.html" width="640" height="360" style="border:none;overflow: hidden;" allowfullscreen="true"></iframe>
 ```
 
@@ -37,15 +37,15 @@ Use the following tags for assets which the privacy is set to PUBLIC.
 ##Private Asset Embed
 Use the following tags for assets which the privacy is set to PRIVATE.
 
-###With Script Tag
+>With Script Tag
 
-```
+```html
 <script src="http://{content.nocvp.com}/asset/{assetSID}/{playerSID}.js?as=assetsigniture&ps=playersigniture&exp=unixtime"></script>
 ```
 
-###With Iframe Tag
+>With Iframe Tag
 
-```
+```html
 <iframe src="http://{content.nocvp.com}/asset/{assetSID}/{playerSID}.html?as=assetsigniture&ps=playersigniture&exp=unixtime" width="640" height="360" style="border:none;overflow: hidden;" allowfullscreen="true"></iframe>
 ```
 
@@ -61,15 +61,15 @@ exp : Unixtime, it is the expiration time in seconds since from Unix epoch, it i
 ##Public Playlist Embed
 Use the following tags for embedding playlists which are the privacy is set to PUBLIC.
 
-###With Script Tag
+>With Script Tag
 
-```
+```html
 <script src="http://{content.nocvp.com}/playlist/{playlistSID}/{playerSID}.js"></script>
 ```
 
-###With Iframe Tag
+> With Iframe Tag
 
-```
+```html
 <iframe src="http://{content.nocvp.com}/playlist/{playlistSID}/{playerSID}.html" width="640" height="360" style="border:none;overflow: hidden;" allowfullscreen="true"></iframe>
 ```
 
@@ -77,15 +77,15 @@ Use the following tags for embedding playlists which are the privacy is set to P
 ##Private Playlist Embed
 Use the following tags for embedding playlists which are the privacy is set to PRIVATE.
 
-###With Script Tag
+>With Script Tag
 
-```
+```html
 <script src="http://{content.nocvp.com}/playlist/{playlistSID}/{playerSID}.js?as=playlistsigniture&ps=playersigniture&exp=unixtime"></script>
 ```
 
-###With Iframe Tag
+>With Iframe Tag
 
-```
+```html
 <iframe src="http://{content.nocvp.com}/playlist/{playlistSID}/{playerSID}.html?as=playlistsigniture&ps=playersigniture&exp=unixtime" width="640" height="360" style="border:none;overflow: hidden;" allowfullscreen="true"></iframe>
 ```
 
