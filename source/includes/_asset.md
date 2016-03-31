@@ -182,33 +182,33 @@ Parameter | Type | Description
 --------- | ------- | -----------
 limit | integer | Limit of asset list. Min 1, Max 200
 offset | integer | offset of asset list.
-sourceStreamName | mixed | source stream name of live or live events
+sourceStreamName | string | source stream name of live or live events
 sourceType | enumerated (VIDEO,AUDIO,IMAGE,OTHER,LIVE,LIVE_EVENT) | source type of asset
-sid | mixed | asset short id
+sid | string | asset short id
 category | array | asset category ids for example: &category[]=category1Id&category[]=category2Id
-referenceId | mixed | your reference id
+referenceId | string | your reference id
 referenceIds | array | your reference ids of array for example: &referenceIds[]=your-ref1&referenceIds[]=your-ref2
-title | mixed | asset title
+title | string | asset title
 tags | array | asset tags for example: &tags[]=tag1&tags[]=tag2
 startTime | long (timestamp) | timestamp of milliseconds. list will be return creationTime >= startTime
 endTime | long (timestamp) | timestamp of milliseconds. list will be return creationTime <= endTime
-userId | mixed | your user id
-q | mixed | any mixed text for full text search
+userId | string | your user id
+q | string | any string text for full text search
 sortBy | object | key allowed 1 or -1, 1 is ascending and -1 is descending sorting for example: &sortBy[title]=1&sortBy[creationTime]=-1
 
 #### Response Parameters
 
 Parameter | Type | Description
 --------- | ------- | -----------
-id | mixed | you need the id while private asset embedding
-sid | mixed | you need the short id while public or private asset embedding
-title | mixed | asset title
-description | mixed | asset description
+id | string | you need the id while private asset embedding
+sid | string | you need the short id while public or private asset embedding
+title | string | asset title
+description | string | asset description
 tags | array | tag each one
-author | mixed | author of asset
-user | mixed | user reference id
-client | mixed | api client reference id
-category | mixed | category reference id
+author | string | author of asset
+user | string | user reference id
+client | string | api client reference id
+category | string | category reference id
 poster | <a href="#image-file-object-structure-extends-file-object-structure">imageFile</a> | Poster reference object
 jobs | array | <a href="#transcoding-job-object-structure">transcodingJob</a> Object each one
 conversions | array | <a href="#image-file-object-structure-extends-file-object-structure">imageFile</a> , <a href="#video-file-object-structure-extends-file-object-structure">videoFile</a> or <a href="#audio-file-object-structure-extends-file-object-structure">audioFile</a> object each one
@@ -216,8 +216,8 @@ source | object | <a href="#image-file-object-structure-extends-file-object-stru
 privacy | enumerated | (PUBLIC or PRIVATE)
 published | boolean | published status of live sources
 viewCounts | long | view counts of asset
-referenceId | mixed | your reference id
-referenceUrl | mixed | your reference url youtube, daily motion, another ...etc
+referenceId | string | your reference id
+referenceUrl | string | your reference url youtube, daily motion, another ...etc
 deliveryStatus | enumerated | (ACTIVE, PASSIVE or SUSPENDED)
 creationTime | long | creation time of milliseconds
 
@@ -263,12 +263,12 @@ Content-Type: application/json
 
 Parameter | Type | Description
 --------- | ------- | -----------
-title | mixed | asset title
+title | string | asset title
 privacy | enumerated | privacy (PUBLIC or PRIVATE)
-category | mixed | category reference id
-description | mixed | asset description
+category | string | category reference id
+description | string | asset description
 tags | array | asset tags
-author | mixed | asset author
+author | string | asset author
 
 #### Response Parameters
 

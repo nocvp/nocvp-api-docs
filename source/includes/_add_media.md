@@ -83,7 +83,7 @@ templates | array | Template group ids.
 
 Parameter | Type | Description
 --------- | ------- | -----------
-url | mixed | url for upload
+url | string | url for upload
 
 ### Step 2. Upload the file
 The video can actually be uploaded to the upload url retrieved above by making a POST HTTP request.
@@ -120,9 +120,9 @@ Content-Disposition: attachment; filename="your_file.mp4"
 Parameter | Type | Description
 --------- | ------- | -----------
 success | boolean | 1|0
-title | mixed | Asset Title
-detail.id | mixed | Asset Id
-detail.sid | mixed | Asset Short Id
+title | string | Asset Title
+detail.id | string | Asset Id
+detail.sid | string | Asset Short Id
 
 
 
@@ -195,7 +195,7 @@ Parameter | Type | Description
 --------- | ------- | -----------
 replacesAssetId | string | this parameter is used to support asset source change and retranscding, input a valid asset id, this asset is going to be replaced by the one you will upload.
 jobStatusCallBackUrl | url | this parameter is used in case you want to receive transcoding job status updates, api will send POST requests with a body indicating the job status. <a href="/?shell#transcoding-job-notification-object-structure"> Check for a sample one</a> .
-<b>url</b> | mixed | youtube, daily motion, direct url ...etc
+<b>url</b> | string | youtube, daily motion, direct url ...etc
 privacy | string | PUBLIC or PRIVATE.
 templateGroupOptions | <a href="/?shell#template-group-options-structure">templateGroupOptions</a> | overriding 
 template group options
@@ -205,8 +205,8 @@ templates | array | Template group ids.
 
 Parameter | Type | Description
 --------- | ------- | -----------
-id | mixed | Asset Id
-sid | mixed | Asset Short Id
+id | string | Asset Id
+sid | string | Asset Short Id
 
 
 ## Create Live Stream

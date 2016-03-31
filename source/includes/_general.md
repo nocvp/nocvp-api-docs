@@ -73,9 +73,9 @@ Content-Type: application/json
 
 Parameter | Default | Description
 --------- | ------- | -----------
-<b>grant_type</b> | mixed | only client_credentials allowed
-<b>client_id</b> | mixed | your client id
-<b>client_secret</b> | mixed | your client secret
+<b>grant_type</b> | string | only client_credentials allowed
+<b>client_id</b> | string | your client id
+<b>client_secret</b> | string | your client secret
 
 ### Response Parameters
 
@@ -92,9 +92,9 @@ Parameter | Default | Description
 
 Parameter | Default | Description
 --------- | ------- | -----------
-access_token | mixed | access token
-expires_in | mixed | expires seconds
-token_type | mixed | Token type is only Bearer supported
+access_token | string | access token
+expires_in | string | expires seconds
+token_type | string | Token type is only Bearer supported
 scope | null | not implemented
 
 #Error Codes & Responses

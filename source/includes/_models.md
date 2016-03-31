@@ -35,20 +35,20 @@
 
 Parameter | Type | Description
 --------- | ------- | -----------
-prefixAssetSid | mixed | asset sid for prefix
-postfixAssetSid | mixed | asset sid for postfix
-overlayImages[].assetSid | mixed | image asset sid
+prefixAssetSid | string | asset sid for prefix
+postfixAssetSid | string | asset sid for postfix
+overlayImages[].assetSid | string | image asset sid
 overlayImages[].location | enum | TOP_LEFT,TOP_RIGHT,BOTTOM_LEFT,BOTTOM_RIGHT
-textLine1.backgroundColor | mixed | color code
-textLine1.backgroundImageAssetSid | mixed | image asset sid
+textLine1.backgroundColor | string | color code
+textLine1.backgroundImageAssetSid | string | image asset sid
 textLine1.opacity | float | text opacity between 0.1 - 1
-textLine1.fontColor | mixed | color code
-textLine1.text | mixed | your text here
-textLine2.backgroundColor | mixed | color code
-textLine2.backgroundImageAssetSid | mixed | image asset sid
+textLine1.fontColor | string | color code
+textLine1.text | string | your text here
+textLine2.backgroundColor | string | color code
+textLine2.backgroundImageAssetSid | string | image asset sid
 textLine2.opacity | float | text opacity between 0.1 - 1
-textLine2.fontColor | mixed | color code
-textLine2.text | mixed | your text here
+textLine2.fontColor | string | color code
+textLine2.text | string | your text here
 
 
 ## Transcoding Job Notification Object Structure
@@ -232,14 +232,14 @@ snapshotCount | string | Specify the total amount of thumnails to be generated, 
 ```
 Parameter | Type | Description
 --------- | ------- | -----------
-id | mixed | file reference id
-sid | mixed | file reference short id
+id | string | file reference id
+sid | string | file reference short id
 type | enumerated | IMAGE|AUDIO|VIDEO|OTHER
 size | 210606 | file size of bytes
 tags | array | file tags
 status | enumerated | status of file
-container | mixed | file extension mp4, ts, jpg, png, bmp ...etc
-contentType | mixed | file mime type for example: video/mp4, audio/aac, image/jpeg, image/png
+container | string | file extension mp4, ts, jpg, png, bmp ...etc
+contentType | string | file mime type for example: video/mp4, audio/aac, image/jpeg, image/png
 creationTime | long | creation time of milliseconds
 
 ## Image File Object Structure (Extends <a href="#file-object-structure">file</a> Object Structure)
@@ -275,12 +275,12 @@ width | integer | video width
 height | integer | video height
 audioBitrate | float | bitrate of audio
 audioChannels | integer | audo channels count 1,2 -> mono stereo
-audioCodec | mixed | codec of audio
+audioCodec | string | codec of audio
 audioSampleRate | float | sample rate of audio for example 44.100
 duration | float | video duration of seconds
 frameRate | float | video frame rate
 videoBitrate | float | bitrate of video
-videoCodec | mixed | codec of video
+videoCodec | string | codec of video
 
 ## Audio File Object Structure (Extends <a href="#file-object-structure">file</a> Object Structure)
 ```
@@ -296,7 +296,7 @@ Parameter | Type | Description
 --------- | ------- | -----------
 audioBitrate | float | bitrate of audio
 audioChannels | integer | audo channels count 1,2 -> mono stereo
-audioCodec | mixed | codec of audio
+audioCodec | string | codec of audio
 duration | float | video duration of seconds
 audioSampleRate | float | sample rate of audio for example 44.100
 
@@ -339,16 +339,16 @@ audioSampleRate | float | sample rate of audio for example 44.100
 ```
 Parameter | Type | Description
 --------- | ------- | -----------
-id | mixed | Transcoding job id
+id | string | Transcoding job id
 template | object | <a href="#video-transcoding-template-object-structure">videoConversionTemplate</a>, <a href="#audio-transcoding-template-object-structure">audioConversionTemplate</a> or <a href="#image-transcoding-template-object-structure">imageConversionTemplate</a> object
 creationTime | long | creation time of milliseconds
 startTime | long | job start time of milliseconds
 lastUpdatedTime | long | job updated time of milliseconds
 state | enumerated | (QUEUE,STARTED,PROGRESSING,COMPLETE,WARNING,ERROR,CANCELED,TIMEOUT)
 progress | float | job progressing percentage 0 to 100
-errorCode | mixed | if throws an error
-errorMessage | mixed | if throws an error
-conversionId | mixed | conversion reference id for only completed job
+errorCode | string | if throws an error
+errorMessage | string | if throws an error
+conversionId | string | conversion reference id for only completed job
 
 ## Social Buttons Object Structure
 ```
@@ -461,3 +461,103 @@ resize | boolean | resize event log status
 volumeChange | boolean | volume change event log status
 error | boolean | error event log status
 fullscreen | boolean | full screen event log status
+
+## Playlist Item Asset Object Structure
+```
+{
+    "id": "532532jf032jf02jf023jf20",
+    "sid": "78fd3f32",
+    "title": "Asset Title",
+    "author": "Copyright NOC INC",
+    "tags": ["asset tag 1", "asset tag 2"],
+    "viewCounts": 52664,
+    "referenceId": "your asset reference id",
+    "referenceUrl": "youtube, daily motion, another ...etc",
+    "deliveryStatus": "ACTIVE",
+    "source": {
+        "type": "VIDEO",
+        "sid": null,
+        "id": "56f3f28500ddb372068b5165",
+        "audioBitrate": 191999,
+        "audioChannels": 0,
+        "audioCodec": "aac",
+        "audioSampleRate": null,
+        "duration": 287.578333,
+        "frameRate": "25",
+        "height": 720,
+        "videoBitrate": 1760925,
+        "videoCodec": "h264",
+        "width": 1280,
+        "size": 70287590,
+        "tags": [
+          "und",
+          "VideoHandler"
+        ],
+        "creationTime": 1458827909147,
+        "status": "READY",
+        "container": "mp4",
+        "contentType": "video/mp4"
+    }
+}
+```
+Parameter | Type | Description
+--------- | ------- | -----------
+id | string | asset id
+sid | string | asset short id
+title | string | asset short id
+author | string | asset short id
+tags | array | tag each one
+viewCounts | long | view counts of asset
+referenceId | string | your reference id
+referenceUrl | string | your reference url youtube, daily motion, another ...etc
+deliveryStatus | enumerated | (ACTIVE, PASSIVE or SUSPENDED)
+source | object | <a href="#image-file-object-structure-extends-file-object-structure">imageFile</a> , <a href="#video-file-object-structure-extends-file-object-structure">videoFile</a>, <a href="#audio-file-object-structure-extends-file-object-structure">audioFile</a>, <a href="#live-source-object-structure">liveSource</a>, <a href="#live-event-source-object-structure">liveEventSource</a>, <a href="#live-pull-source-object-structure">livePullSource</a> object
+creationTime | long | creation time of milliseconds
+
+## Playlist Item Object Structure
+```
+{
+    "sort": 154,
+    "asset": {
+         "id": "532532jf032jf02jf023jf20",
+         "sid": "78fd3f32",
+         "title": "Asset Title",
+         "author": "Copyright NOC INC",
+         "tags": ["asset tag 1", "asset tag 2"],
+         "viewCounts": 52664,
+         "referenceId": "your asset reference id",
+         "referenceUrl": "youtube, daily motion, another ...etc",
+         "deliveryStatus": "ACTIVE",
+         "source": {
+             "type": "VIDEO",
+             "sid": null,
+             "id": "56f3f28500ddb372068b5165",
+             "audioBitrate": 191999,
+             "audioChannels": 0,
+             "audioCodec": "aac",
+             "audioSampleRate": null,
+             "duration": 287.578333,
+             "frameRate": "25",
+             "height": 720,
+             "videoBitrate": 1760925,
+             "videoCodec": "h264",
+             "width": 1280,
+             "size": 70287590,
+             "tags": [
+               "und",
+               "VideoHandler"
+             ],
+             "creationTime": 1458827909147,
+             "status": "READY",
+             "container": "mp4",
+             "contentType": "video/mp4"
+         }
+    },
+    "creationTime": 1458742871986
+}
+```
+Parameter | Type | Description
+--------- | ------- | -----------
+sort | long | item sort
+asset | object | <a href="#playlist-item-asset-object-structure">playlistItemAssetObject</a>
+creationTime | long | creation time of milliseconds
