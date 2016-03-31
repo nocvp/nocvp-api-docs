@@ -125,7 +125,7 @@ Content-Type: application/json
 }
 ```
 
-> The above command returns JSON structured to <a href="/?http#list-advertising">Advertising Object</a>:
+> The above command returns JSON structured to <a href="/#list-advertising">Advertising Object</a>:
 
 #### HTTP Request
 
@@ -144,7 +144,7 @@ adBreaks | array | <a href="/#player-ads-ad-break-object-structure">adBreakObjec
 
 #### Response Parameters
 
-The Response likes <a href="/?http#list-advertising">Advertising Object</a>
+The Response likes <a href="/#list-advertising">Advertising Object</a>
 
 
 ## Update Advertising
@@ -204,7 +204,7 @@ Content-Type: application/json
 }
 ```
 
-> The above command returns JSON structured to <a href="/?http#list-advertising">Advertising Object</a>:
+> The above command returns JSON structured to <a href="/#list-advertising">Advertising Object</a>:
 
 #### HTTP Request
 
@@ -223,7 +223,7 @@ adBreaks | array | <a href="/#player-ads-ad-break-object-structure">adBreakObjec
 
 #### Response Parameters
 
-The Response likes <a href="/?http#list-advertising">Advertising Object</a>
+The Response likes <a href="/#list-advertising">Advertising Object</a>
 
 ## Delete Advertising
 
@@ -238,7 +238,7 @@ Host: api.nocvp.com
 Authorization: Bearer da7377d7bb94a7651470d01b663be032b0dab51d
 ```
 
-> The above command returns JSON structured to <a href="/?http#list-advertising">Advertising Object</a>:
+> The above command returns JSON structured to <a href="/#list-advertising">Advertising Object</a>:
 
 #### HTTP Request
 

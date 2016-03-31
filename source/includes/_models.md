@@ -242,7 +242,7 @@ container | mixed | file extension mp4, ts, jpg, png, bmp ...etc
 contentType | mixed | file mime type for example: video/mp4, audio/aac, image/jpeg, image/png
 creationTime | long | creation time of milliseconds
 
-## Image File Object Structure (Extends <a href="/?http#file-object-structure">file</a> Object Structure)
+## Image File Object Structure (Extends <a href="/#file-object-structure">file</a> Object Structure)
 ```
 {
     "width": 640,
@@ -254,7 +254,7 @@ Parameter | Type | Description
 width | integer | image width
 height | integer | image height
 
-## Video File Object Structure (Extends <a href="/?http#file-object-structure">file</a> Object Structure)
+## Video File Object Structure (Extends <a href="/#file-object-structure">file</a> Object Structure)
 ```
 {
     "width": 854,
@@ -282,7 +282,7 @@ frameRate | float | video frame rate
 videoBitrate | float | bitrate of video
 videoCodec | mixed | codec of video
 
-## Audio File Object Structure (Extends <a href="/?http#file-object-structure">file</a> Object Structure)
+## Audio File Object Structure (Extends <a href="/#file-object-structure">file</a> Object Structure)
 ```
 {
     "audioBitrate": 128,
@@ -340,7 +340,7 @@ audioSampleRate | float | sample rate of audio for example 44.100
 Parameter | Type | Description
 --------- | ------- | -----------
 id | mixed | Transcoding job id
-template | object | <a href="/?http#video-transcoding-template-object-structure">videoConversionTemplate</a>, <a href="/?http#audio-transcoding-template-object-structure">audioConversionTemplate</a> or <a href="/?http#image-transcoding-template-object-structure">imageConversionTemplate</a> object
+template | object | <a href="/#video-transcoding-template-object-structure">videoConversionTemplate</a>, <a href="/#audio-transcoding-template-object-structure">audioConversionTemplate</a> or <a href="/#image-transcoding-template-object-structure">imageConversionTemplate</a> object
 creationTime | long | creation time of milliseconds
 startTime | long | job start time of milliseconds
 lastUpdatedTime | long | job updated time of milliseconds

@@ -260,7 +260,7 @@ Content-Type: application/json
 }
 ```
 
-> The above command returns JSON structured to <a href="/?http#list-players">Player Object</a>:
+> The above command returns JSON structured to <a href="/#list-players">Player Object</a>:
 
 #### HTTP Request
 
@@ -303,7 +303,7 @@ endScreenContent | string | video end screen content
 
 #### Response Parameters
 
-The Response likes <a href="/?http#list-players">Player Object</a>
+The Response likes <a href="/#list-players">Player Object</a>
 
 
 ## Update Player
@@ -426,7 +426,7 @@ Content-Type: application/json
 }
 ```
 
-> The above command returns JSON structured to <a href="/?http#list-players">Player Object</a>:
+> The above command returns JSON structured to <a href="/#list-players">Player Object</a>:
 
 #### HTTP Request
 
@@ -469,7 +469,7 @@ endScreenContent | string | video end screen content
 
 #### Response Parameters
 
-The Response likes <a href="/?http#list-players">Player Object</a>
+The Response likes <a href="/#list-players">Player Object</a>
 
 ## Delete Player
 
@@ -484,7 +484,7 @@ Host: api.nocvp.com
 Authorization: Bearer da7377d7bb94a7651470d01b663be032b0dab51d
 ```
 
-> The above command returns JSON structured to <a href="/?http#list-players">Player Object</a>:
+> The above command returns JSON structured to <a href="/#list-players">Player Object</a>:
 
 #### HTTP Request
 
