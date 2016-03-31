@@ -11,3 +11,9 @@
 - Playlist documentation updated.
 - Player documentation updated.
 - Advertising documentation updated.
+
+
+## 2016-03-31 - 0.1.2
+- Playlist documentation updated.
+- User documentation updated.
+- Client documentation updated.
