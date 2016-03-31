@@ -349,3 +349,115 @@ progress | float | job progressing percentage 0 to 100
 errorCode | mixed | if throws an error
 errorMessage | mixed | if throws an error
 conversionId | mixed | conversion reference id for only completed job
+
+## Social Buttons Object Structure
+```
+{
+    "scalar": false,
+    "facebook": true,
+    "twitter": true,
+    "google": true,
+    "pinterest": true,
+    "linkedIn": true
+}
+```
+Parameter | Type | Description
+--------- | ------- | -----------
+scalar | boolean | show scalar button status
+facebook | boolean | sharing on facebook
+twitter | boolean | sharing on twitter
+google | boolean | sharing on google
+pinterest | boolean | sharing on pinterest
+linkedIn | boolean | sharing on linked-in
+
+## Player Ads Ad Tag Uri Object Structure
+```
+{
+  "weight": 100,
+  "uri": "https://googleads.g.doubleclick.net/pagead/ads?...xml_vast3"
+}
+```
+Parameter | Type | Description
+--------- | ------- | -----------
+weight | long | weight for uri
+uri | string | ads uri
+
+## Player Ads Ad Break Object Structure
+```
+{
+  "breakType": 100,
+  "timeOffset": "",
+  "allowMultipleAds": false,
+  "followRedirects": true,
+  "adTagUri": [
+      {
+        "weight": 100,
+        "uri": "https://googleads.g.doubleclick.net/_vast3"
+      }
+  ]
+}
+```
+Parameter | Type | Description
+--------- | ------- | -----------
+breakType | enumerated | (LINEAR, NON_LINEAR, DISPLAY)
+timeOffset | string | time offset
+allowMultipleAds | boolean | allowed multiple ads if true
+followRedirects | boolean | following uri redirects
+adTagUri | array | <a href="/#player-ads-ad-tag-uri-object-structure">adTagUriObject</a> each one
+
+## Player Ads Object Structure
+```
+{
+    "id": "56e1cd6300ddb31a5c8b4674",
+    "sid": "7AU2sjb9",
+    "title": "IMA Test",
+    "type": "URI",
+    "adTagUri": [
+        {
+          "weight": 100,
+          "uri": "https://googleads.g.doubleclick.net/pagead/ads?...xml_vast3"
+        }
+    ],
+    "adBreaks": [],
+    "creationTime": 1457638755757
+}
+```
+Parameter | Type | Description
+--------- | ------- | -----------
+id | string | ads id
+sid | string | ads short id
+title | string | ads title
+type | enumerated | (URI or CUSTOM)
+adTagUri | array | <a href="/#player-ads-ad-tag-uri-object-structure">adTagUriObject</a> each one
+adBreak | array | <a href="/#player-ads-ad-break-object-structure">adBreakObject</a> each one
+creationTime | long | creation time of milliseconds
+
+## Player Google Analytics Object Structure
+```
+{
+    "loaded": true,
+    "percentsPlayed": true,
+    "start": true,
+    "end": true,
+    "seek": true,
+    "play": true,
+    "pause": true,
+    "resize": true,
+    "volumeChange": true,
+    "error": true,
+    "fullscreen": true
+}
+```
+Parameter | Type | Description
+--------- | ------- | -----------
+loaded | boolean | loaded event log status
+percentsPlayed | boolean | percents played event log status
+start | boolean | start event log status
+end | boolean | end event log status
+seek | boolean | seek event log status
+play | boolean | play event log status
+pause | boolean | pause event log status
+resize | boolean | resize event log status
+volumeChange | boolean | volume change event log status
+error | boolean | error event log status
+fullscreen | boolean | full screen event log status
