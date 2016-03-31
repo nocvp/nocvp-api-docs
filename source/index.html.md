@@ -21,6 +21,7 @@ includes:
   - analytics
   - user
   - client
+  - analytic
   - models
   - changelog
 
