@@ -118,7 +118,7 @@ fullScreen | boolean | show full screen button status
 autoPlay | boolean | auto play status
 controls | boolean | show control buttons status
 timeBar | boolean | show time bar status
-socialButtons | object | <a href="/#social-buttons-object-structure">socialButtonsObject</a>
+socialButtons | object | <a href="#social-buttons-object-structure">socialButtonsObject</a>
 timeRemaining | boolean | show time remaining status
 iconColor | string | for example "#FFDDAA" or "rgba(98,151,181,0.8)"
 progressColor | string | for example "#FFDDAA" or "rgba(98,151,181,0.8)"
@@ -128,9 +128,9 @@ logo | string | image asset reference sid
 fontSize | integer | font size pixel
 logoPosition | enumerated | (TOP_LEFT, TOP_RIGHT, BOTTOM_LEFT, BOTTOM_RIGHT) 
 privacy | enumerated | (PUBLIC or PRIVATE)
-ads | object | <a href="/#player-ads-object-structure">adsObject</a>
+ads | object | <a href="#player-ads-object-structure">adsObject</a>
 googleAnalytics | string | google analytics id
-googleAnalyticsEvents | object | <a href="/#player-google-analytics-object-structure">googleAnalyticsObject</a>
+googleAnalyticsEvents | object | <a href="#player-google-analytics-object-structure">googleAnalyticsObject</a>
 techs | array | (html5, hls, flash) strings each one 
 playlistAutoPlayNext | boolean | auto play next video on playlist
 playlistRepeat | boolean | auto repeat playlist
@@ -260,7 +260,7 @@ Content-Type: application/json
 }
 ```
 
-> The above command returns JSON structured to <a href="/#list-players">Player Object</a>:
+> The above command returns JSON structured to <a href="#list-players">Player Object</a>:
 
 #### HTTP Request
 
@@ -281,7 +281,7 @@ fullScreen | boolean | show full screen button status
 autoPlay | boolean | auto play status
 controls | boolean | show control buttons status
 timeBar | boolean | show time bar status
-socialButtons | object | <a href="/#social-buttons-object-structure">socialButtonsObject</a>
+socialButtons | object | <a href="#social-buttons-object-structure">socialButtonsObject</a>
 timeRemaining | boolean | show time remaining status
 iconColor | string | for example "#FFDDAA" or "rgba(98,151,181,0.8)"
 progressColor | string | for example "#FFDDAA" or "rgba(98,151,181,0.8)"
@@ -293,7 +293,7 @@ logoPosition | enumerated | (TOP_LEFT, TOP_RIGHT, BOTTOM_LEFT, BOTTOM_RIGHT)
 privacy | enumerated | (PUBLIC or PRIVATE)
 ads | object | Advertising reference id
 googleAnalytics | string | google analytics id
-googleAnalyticsEvents | object | <a href="/#player-google-analytics-object-structure">googleAnalyticsObject</a>
+googleAnalyticsEvents | object | <a href="#player-google-analytics-object-structure">googleAnalyticsObject</a>
 techs | array | (html5, hls, flash) strings each one 
 playlistAutoPlayNext | boolean | auto play next video on playlist
 playlistRepeat | boolean | auto repeat playlist
@@ -303,7 +303,7 @@ endScreenContent | string | video end screen content
 
 #### Response Parameters
 
-The Response likes <a href="/#list-players">Player Object</a>
+The Response likes <a href="#list-players">Player Object</a>
 
 
 ## Update Player
@@ -426,7 +426,7 @@ Content-Type: application/json
 }
 ```
 
-> The above command returns JSON structured to <a href="/#list-players">Player Object</a>:
+> The above command returns JSON structured to <a href="#list-players">Player Object</a>:
 
 #### HTTP Request
 
@@ -447,7 +447,7 @@ fullScreen | boolean | show full screen button status
 autoPlay | boolean | auto play status
 controls | boolean | show control buttons status
 timeBar | boolean | show time bar status
-socialButtons | object | <a href="/#social-buttons-object-structure">socialButtonsObject</a>
+socialButtons | object | <a href="#social-buttons-object-structure">socialButtonsObject</a>
 timeRemaining | boolean | show time remaining status
 iconColor | string | for example "#FFDDAA" or "rgba(98,151,181,0.8)"
 progressColor | string | for example "#FFDDAA" or "rgba(98,151,181,0.8)"
@@ -459,7 +459,7 @@ logoPosition | enumerated | (TOP_LEFT, TOP_RIGHT, BOTTOM_LEFT, BOTTOM_RIGHT)
 privacy | enumerated | (PUBLIC or PRIVATE)
 ads | object | Advertising reference id
 googleAnalytics | string | google analytics id
-googleAnalyticsEvents | object | <a href="/#player-google-analytics-object-structure">googleAnalyticsObject</a>
+googleAnalyticsEvents | object | <a href="#player-google-analytics-object-structure">googleAnalyticsObject</a>
 techs | array | (html5, hls, flash) strings each one 
 playlistAutoPlayNext | boolean | auto play next video on playlist
 playlistRepeat | boolean | auto repeat playlist
@@ -469,7 +469,7 @@ endScreenContent | string | video end screen content
 
 #### Response Parameters
 
-The Response likes <a href="/#list-players">Player Object</a>
+The Response likes <a href="#list-players">Player Object</a>
 
 ## Delete Player
 
@@ -484,7 +484,7 @@ Host: api.nocvp.com
 Authorization: Bearer da7377d7bb94a7651470d01b663be032b0dab51d
 ```
 
-> The above command returns JSON structured to <a href="/#list-players">Player Object</a>:
+> The above command returns JSON structured to <a href="#list-players">Player Object</a>:
 
 #### HTTP Request
 

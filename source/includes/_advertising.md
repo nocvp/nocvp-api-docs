@@ -64,8 +64,8 @@ id | string | ads id
 sid | string | ads short id
 title | string | ads title
 type | enumerated | (URI or CUSTOM)
-adTagUri | array | <a href="/#player-ads-ad-tag-uri-object-structure">adTagUriObject</a> each one
-adBreaks | array | <a href="/#player-ads-ad-break-object-structure">adBreakObject</a> each one
+adTagUri | array | <a href="#player-ads-ad-tag-uri-object-structure">adTagUriObject</a> each one
+adBreaks | array | <a href="#player-ads-ad-break-object-structure">adBreakObject</a> each one
 creationTime | long | creation time of milliseconds
 
 ## Create Advertising
@@ -125,7 +125,7 @@ Content-Type: application/json
 }
 ```
 
-> The above command returns JSON structured to <a href="/#list-advertising">Advertising Object</a>:
+> The above command returns JSON structured to <a href="#list-advertising">Advertising Object</a>:
 
 #### HTTP Request
 
@@ -139,12 +139,12 @@ Parameter | Type | Description
 --------- | ------- | -----------
 <b>title</b> | string | ads title
 type | enumerated | (URI or CUSTOM)
-adTagUri | array | <a href="/#player-ads-ad-tag-uri-object-structure">adTagUriObject</a> each one
-adBreaks | array | <a href="/#player-ads-ad-break-object-structure">adBreakObject</a> each one
+adTagUri | array | <a href="#player-ads-ad-tag-uri-object-structure">adTagUriObject</a> each one
+adBreaks | array | <a href="#player-ads-ad-break-object-structure">adBreakObject</a> each one
 
 #### Response Parameters
 
-The Response likes <a href="/#list-advertising">Advertising Object</a>
+The Response likes <a href="#list-advertising">Advertising Object</a>
 
 
 ## Update Advertising
@@ -204,7 +204,7 @@ Content-Type: application/json
 }
 ```
 
-> The above command returns JSON structured to <a href="/#list-advertising">Advertising Object</a>:
+> The above command returns JSON structured to <a href="#list-advertising">Advertising Object</a>:
 
 #### HTTP Request
 
@@ -218,12 +218,12 @@ Parameter | Type | Description
 --------- | ------- | -----------
 <b>title</b> | string | ads title
 type | enumerated | (URI or CUSTOM)
-adTagUri | array | <a href="/#player-ads-ad-tag-uri-object-structure">adTagUriObject</a> each one
-adBreaks | array | <a href="/#player-ads-ad-break-object-structure">adBreakObject</a> each one
+adTagUri | array | <a href="#player-ads-ad-tag-uri-object-structure">adTagUriObject</a> each one
+adBreaks | array | <a href="#player-ads-ad-break-object-structure">adBreakObject</a> each one
 
 #### Response Parameters
 
-The Response likes <a href="/#list-advertising">Advertising Object</a>
+The Response likes <a href="#list-advertising">Advertising Object</a>
 
 ## Delete Advertising
 
@@ -238,7 +238,7 @@ Host: api.nocvp.com
 Authorization: Bearer da7377d7bb94a7651470d01b663be032b0dab51d
 ```
 
-> The above command returns JSON structured to <a href="/#list-advertising">Advertising Object</a>:
+> The above command returns JSON structured to <a href="#list-advertising">Advertising Object</a>:
 
 #### HTTP Request
 

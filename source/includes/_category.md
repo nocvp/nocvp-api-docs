@@ -54,7 +54,7 @@ Parameter | Type | Description
 id | string | category id
 sid | string | category short id
 title | string | category title
-poster | object | <a href="/#image-file-object-structure-extends-file-object-structure">imageFileObject</a>
+poster | object | <a href="#image-file-object-structure-extends-file-object-structure">imageFileObject</a>
 creationTime | long | creation time of milliseconds
 
 ## Create Category
@@ -78,7 +78,7 @@ Content-Type: application/json
 }
 ```
 
-> The above command returns JSON structured to <a href="/#list-category">Category Object</a>:
+> The above command returns JSON structured to <a href="#list-category">Category Object</a>:
 
 #### HTTP Request
 
@@ -94,7 +94,7 @@ Parameter | Type | Description
 
 #### Response Parameters
 
-The Response likes <a href="/#list-category">Category Object</a>
+The Response likes <a href="#list-category">Category Object</a>
 
 
 ## Update Category
@@ -118,7 +118,7 @@ Content-Type: application/json
 }
 ```
 
-> The above command returns JSON structured to <a href="/#list-category">Category Object</a>:
+> The above command returns JSON structured to <a href="#list-category">Category Object</a>:
 
 #### HTTP Request
 
@@ -134,7 +134,7 @@ Parameter | Type | Description
 
 #### Response Parameters
 
-The Response likes <a href="/#list-category">Category Object</a>
+The Response likes <a href="#list-category">Category Object</a>
 
 ## Delete Category
 
@@ -149,7 +149,7 @@ Host: api.nocvp.com
 Authorization: Bearer da7377d7bb94a7651470d01b663be032b0dab51d
 ```
 
-> The above command returns JSON structured to <a href="/#list-category">Category Object</a>:
+> The above command returns JSON structured to <a href="#list-category">Category Object</a>:
 
 #### HTTP Request
 
@@ -162,4 +162,6 @@ The Response must be empty and http status code 204 No Content
 
 ## Poster Upload
 
-## Poster Change
+set to isPoster true and set category reference id
+
+You need to the <a href="#add-media">upload flow</a>

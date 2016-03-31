@@ -87,8 +87,8 @@ Parameter | Type | Description
 id | string | template group id
 name | string | template group title
 useByDefault | boolean | use by default option
-templates | array | <a href="/#video-transcoding-template-object-structure">videoConversionTemplate</a>, <a href="/#audio-transcoding-template-object-structure">audioConversionTemplate</a> or <a href="/#image-transcoding-template-object-structure">imageConversionTemplate</a> each one
-options | object | <a href="/#template-group-options-structure">templateGroupOptionsObject</a>
+templates | array | <a href="#video-transcoding-template-object-structure">videoConversionTemplate</a>, <a href="#audio-transcoding-template-object-structure">audioConversionTemplate</a> or <a href="#image-transcoding-template-object-structure">imageConversionTemplate</a> each one
+options | object | <a href="#template-group-options-structure">templateGroupOptionsObject</a>
 creationTime | long | creation time of milliseconds
 
 ## Create Template Group
@@ -198,7 +198,7 @@ Content-Type: application/json
 }
 ```
 
-> The above command returns JSON structured to <a href="/#list-template-group">Template Group Object</a>:
+> The above command returns JSON structured to <a href="#list-template-group">Template Group Object</a>:
 
 #### HTTP Request
 
@@ -212,12 +212,12 @@ Parameter | Type | Description
 --------- | ------- | -----------
 <b>name</b> | string | template group title
 useByDefault | boolean | use by default option
-templates | array | <a href="/#video-transcoding-template-object-structure">videoConversionTemplate</a>, <a href="/#audio-transcoding-template-object-structure">audioConversionTemplate</a> or <a href="/#image-transcoding-template-object-structure">imageConversionTemplate</a> each one
-options | object | <a href="/#template-group-options-structure">templateGroupOptionsObject</a>
+templates | array | <a href="#video-transcoding-template-object-structure">videoConversionTemplate</a>, <a href="#audio-transcoding-template-object-structure">audioConversionTemplate</a> or <a href="#image-transcoding-template-object-structure">imageConversionTemplate</a> each one
+options | object | <a href="#template-group-options-structure">templateGroupOptionsObject</a>
 
 #### Response Parameters
 
-The Response likes <a href="/#list-template-group">Template Group Object</a>
+The Response likes <a href="#list-template-group">Template Group Object</a>
 
 
 ## Update Template Group
@@ -327,7 +327,7 @@ Content-Type: application/json
 }
 ```
 
-> The above command returns JSON structured to <a href="/#list-template-group">Template Group Object</a>:
+> The above command returns JSON structured to <a href="#list-template-group">Template Group Object</a>:
 
 #### HTTP Request
 
@@ -341,12 +341,12 @@ Parameter | Type | Description
 --------- | ------- | -----------
 <b>name</b> | string | template group title
 useByDefault | boolean | use by default option
-templates | array | <a href="/#video-transcoding-template-object-structure">videoConversionTemplate</a>, <a href="/#audio-transcoding-template-object-structure">audioConversionTemplate</a> or <a href="/#image-transcoding-template-object-structure">imageConversionTemplate</a> each one
-options | object | <a href="/#template-group-options-structure">templateGroupOptionsObject</a>
+templates | array | <a href="#video-transcoding-template-object-structure">videoConversionTemplate</a>, <a href="#audio-transcoding-template-object-structure">audioConversionTemplate</a> or <a href="#image-transcoding-template-object-structure">imageConversionTemplate</a> each one
+options | object | <a href="#template-group-options-structure">templateGroupOptionsObject</a>
 
 #### Response Parameters
 
-The Response likes <a href="/#list-template-group">Template Group Object</a>
+The Response likes <a href="#list-template-group">Template Group Object</a>
 
 ## Delete Template Group
 
@@ -361,7 +361,7 @@ Host: api.nocvp.com
 Authorization: Bearer da7377d7bb94a7651470d01b663be032b0dab51d
 ```
 
-> The above command returns JSON structured to <a href="/#list-template-group">Template Group Object</a>:
+> The above command returns JSON structured to <a href="#list-template-group">Template Group Object</a>:
 
 #### HTTP Request
 

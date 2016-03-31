@@ -209,10 +209,10 @@ author | mixed | author of asset
 user | mixed | user reference id
 client | mixed | api client reference id
 category | mixed | category reference id
-poster | <a href="/#image-file-object-structure-extends-file-object-structure">imageFile</a> | Poster reference object
-jobs | array | <a href="/#transcoding-job-object-structure">transcodingJob</a> Object each one
-conversions | array | <a href="/#image-file-object-structure-extends-file-object-structure">imageFile</a> , <a href="/#video-file-object-structure-extends-file-object-structure">videoFile</a> or <a href="/#audio-file-object-structure-extends-file-object-structure">audioFile</a> object each one
-source | object | <a href="/#image-file-object-structure-extends-file-object-structure">imageFile</a> , <a href="/#video-file-object-structure-extends-file-object-structure">videoFile</a>, <a href="/#audio-file-object-structure-extends-file-object-structure">audioFile</a>, <a href="/#live-source-object-structure">liveSource</a>, <a href="/#live-event-source-object-structure">liveEventSource</a>, <a href="/#live-pull-source-object-structure">livePullSource</a> object
+poster | <a href="#image-file-object-structure-extends-file-object-structure">imageFile</a> | Poster reference object
+jobs | array | <a href="#transcoding-job-object-structure">transcodingJob</a> Object each one
+conversions | array | <a href="#image-file-object-structure-extends-file-object-structure">imageFile</a> , <a href="#video-file-object-structure-extends-file-object-structure">videoFile</a> or <a href="#audio-file-object-structure-extends-file-object-structure">audioFile</a> object each one
+source | object | <a href="#image-file-object-structure-extends-file-object-structure">imageFile</a> , <a href="#video-file-object-structure-extends-file-object-structure">videoFile</a>, <a href="#audio-file-object-structure-extends-file-object-structure">audioFile</a>, <a href="#live-source-object-structure">liveSource</a>, <a href="#live-event-source-object-structure">liveEventSource</a>, <a href="#live-pull-source-object-structure">livePullSource</a> object
 privacy | enumerated | (PUBLIC or PRIVATE)
 published | boolean | published status of live sources
 viewCounts | long | view counts of asset
@@ -251,7 +251,7 @@ Content-Type: application/json
 }
 ```
 
-> The above command returns JSON structured to <a href="/#list-assets">Asset Object</a>:
+> The above command returns JSON structured to <a href="#list-assets">Asset Object</a>:
 
 #### HTTP Request
 
@@ -272,7 +272,7 @@ author | mixed | asset author
 
 #### Response Parameters
 
-The Response likes <a href="/#list-assets">Asset Object</a>
+The Response likes <a href="#list-assets">Asset Object</a>
 
 ## Delete Asset
 
@@ -287,7 +287,7 @@ Host: api.nocvp.com
 Authorization: Bearer da7377d7bb94a7651470d01b663be032b0dab51d
 ```
 
-> The above command returns JSON structured to <a href="/#list-assets">Asset Object</a>:
+> The above command returns JSON structured to <a href="#list-assets">Asset Object</a>:
 
 #### HTTP Request
 
@@ -297,6 +297,9 @@ Authorization: Bearer da7377d7bb94a7651470d01b663be032b0dab51d
 
 The Response must be empty and http status code 204 No Content
 
+
 ## Poster Upload
 
-## Poster Change
+set to isPoster true and set asset reference id
+
+You need to the <a href="#add-media">upload flow</a>
