@@ -16,7 +16,7 @@ includes:
   - playlist
   - category
   - player
-  - advertisement
+  - advertising
   - template_group
   - analytics
   - user

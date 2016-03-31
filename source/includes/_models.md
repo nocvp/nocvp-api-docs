@@ -429,7 +429,7 @@ sid | string | ads short id
 title | string | ads title
 type | enumerated | (URI or CUSTOM)
 adTagUri | array | <a href="/#player-ads-ad-tag-uri-object-structure">adTagUriObject</a> each one
-adBreak | array | <a href="/#player-ads-ad-break-object-structure">adBreakObject</a> each one
+adBreaks | array | <a href="/#player-ads-ad-break-object-structure">adBreakObject</a> each one
 creationTime | long | creation time of milliseconds
 
 ## Player Google Analytics Object Structure

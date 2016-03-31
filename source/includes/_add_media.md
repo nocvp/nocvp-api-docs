@@ -61,7 +61,7 @@ Content-Type: application/json
 
 #### HTTP Request
 
-`POST http://api.nocvp.com/v1/upload`
+`POST https://api.nocvp.com/v1/upload`
 
 #### Query Parameters
 
@@ -147,7 +147,7 @@ curl -X POST -H "Authorization: Bearer 6bb258814327c7a9ef0790590d6cc8269c7526ce"
             "text" : "This should be seen on the video 222."
         }
     }
-}' "http://api.nocvp.com/v1/upload-from-url"
+}' "https://api.nocvp.com/v1/upload-from-url"
 ```
 
 ```http
@@ -186,7 +186,7 @@ Content-Type: application/json
 
 #### HTTP Request
 
-`POST http://api.nocvp.com/v1/upload-from-url`
+`POST https://api.nocvp.com/v1/upload-from-url`
 
 #### Query Parameters
 `Elements in bold are mandatory.`

@@ -1,4 +1,3 @@
-
 # Players
 
 ## List Players
@@ -6,7 +5,7 @@
 ```shell
 # With shell, you can just pass the correct header with each request
 curl -X GET -H "Authorization: Bearer 6b66868c72c570dc78a44bc1f9c7e229485434b6"
- "http://api.nocvp.com/v1/player[/:id]/?queryStringParameters"
+ "https://api.nocvp.com/v1/player[/:id]/?queryStringParameters"
 ```
 
 ```http
@@ -197,7 +196,7 @@ curl -X POST -H "Authorization: Bearer 24237266067dac7f36ad1f3bd21421d55feb9561"
     "fontSize": 9,
     "endScreen": "RELATED",
     "endScreenContent": "end screen text here"
-}' "http://api.nocvp.zf2.dev/v1/player"
+}' "https://api.nocvp.com/v1/player"
 ```
 
 ```http
@@ -265,7 +264,7 @@ Content-Type: application/json
 
 #### HTTP Request
 
-`POST http://api.nocvp.com/v1/player`
+`POST https://api.nocvp.com/v1/player`
 
 #### Request Parameters
 
@@ -363,7 +362,7 @@ curl -X PUT -H "Authorization: Bearer 24237266067dac7f36ad1f3bd21421d55feb9561" 
     "fontSize": 9,
     "endScreen": "RELATED",
     "endScreenContent": "end screen text here"
-}' "http://api.nocvp.zf2.dev/v1/player/54ec6ebbc757695a020041a8"
+}' "https://api.nocvp.com/v1/player/54ec6ebbc757695a020041a8"
 ```
 
 ```http
@@ -431,7 +430,7 @@ Content-Type: application/json
 
 #### HTTP Request
 
-`PUT http://api.nocvp.com/v1/player/:id`
+`PUT https://api.nocvp.com/v1/player/:id`
 
 #### Request Parameters
 
@@ -476,7 +475,7 @@ The Response likes <a href="/?http#list-players">Player Object</a>
 
 ```shell
 # With shell, you can just pass the correct header with each request
-curl -X DELETE -H "Authorization: Bearer da7377d7bb94a7651470d01b663be032b0dab51d" "http://api.nocvp.com/v1/player/54ec6d59c757695b020041a9"
+curl -X DELETE -H "Authorization: Bearer da7377d7bb94a7651470d01b663be032b0dab51d" "https://api.nocvp.com/v1/player/54ec6d59c757695b020041a9"
 ```
 
 ```http
@@ -489,7 +488,7 @@ Authorization: Bearer da7377d7bb94a7651470d01b663be032b0dab51d
 
 #### HTTP Request
 
-`DELETE http://api.nocvp.com/v1/player/:id`
+`DELETE https://api.nocvp.com/v1/player/:id`
 
 #### Response
 

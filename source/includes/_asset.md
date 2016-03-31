@@ -1,4 +1,3 @@
-
 # Assets
 
 ## List Assets
@@ -6,7 +5,7 @@
 ```shell
 # With shell, you can just pass the correct header with each request
 curl -X GET -H "Authorization: Bearer 6b66868c72c570dc78a44bc1f9c7e229485434b6"
- "http://api.nocvp.com/v1/asset[/:id]/?queryStringParameters"
+ "https://api.nocvp.com/v1/asset[/:id]/?queryStringParameters"
 ```
 
 ```http
@@ -233,7 +232,7 @@ curl -X PUT -H "Authorization: Bearer 5000ad6318dddf768e9689e6f909e85d334e835d" 
     "description": "New description",
     "tags": ["new tag1", "new tag2"],
     "author": "Copyright Noc INC"
-}' "http://api.nocvp.com/v1/asset/7Bd9g4yg"
+}' "https://api.nocvp.com/v1/asset/7Bd9g4yg"
 ```
 
 ```http
@@ -256,7 +255,7 @@ Content-Type: application/json
 
 #### HTTP Request
 
-`PUT http://api.nocvp.com/v1/asset/:id`
+`PUT https://api.nocvp.com/v1/asset/:id`
 
 #### Query Parameters
 
@@ -279,12 +278,12 @@ The Response likes <a href="/?http#list-assets">Asset Object</a>
 
 ```shell
 # With shell, you can just pass the correct header with each request
-curl -X DELETE -H "Authorization: Bearer da7377d7bb94a7651470d01b663be032b0dab51d" "http://api.nocvp.zf2.cross.dev/v1/asset/54ec6d59c757695b020041a9"
+curl -X DELETE -H "Authorization: Bearer da7377d7bb94a7651470d01b663be032b0dab51d" "https://api.nocvp.com/v1/asset/54ec6d59c757695b020041a9"
 ```
 
 ```http
 DELETE /v1/asset/54ec6d59c757695b020041a9 HTTP/1.1
-Host: api.nocvp.zf2.cross.dev
+Host: api.nocvp.com
 Authorization: Bearer da7377d7bb94a7651470d01b663be032b0dab51d
 ```
 
@@ -292,7 +291,7 @@ Authorization: Bearer da7377d7bb94a7651470d01b663be032b0dab51d
 
 #### HTTP Request
 
-`DELETE http://api.nocvp.com/v1/asset/:id`
+`DELETE https://api.nocvp.com/v1/asset/:id`
 
 #### Response
 
