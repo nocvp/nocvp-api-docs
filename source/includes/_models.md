@@ -168,6 +168,26 @@ videoCodec | string | The video codec for the output file. Valid values are libx
 videoCodecOptions | mixes | Applicable only when the value of videoCodec is libx264. 
 videoMaxFrameRate | mixes | Api uses the frame rate of the input video for the frame rate of the output video, up to the maximum frame rate. 
 
+### Video Transcoding Template Validations
+
+Extends <a href="#audio-transcoding-template-validations">Audio Transcoding Template Validations</a>
+
+Parameter | Validations
+--------- | -----------
+videoCodec | Required
+maxWidth | Required, Between (128, 4096)
+maxHeight | Required, Between (96, 3072)
+frameRate | Required, Enumerated Alpha Numeric Chars ('auto', '10', '15', '23.97', '24', '25', '29.97', '30', '50', '60')
+videoBitrate | Required if rateControl equal to targetBitrate, Between (16, 62500)
+constantRatefactor | Required if rateControl equal to constantQuality, Between (15, 45)
+videoCodecOptions.profile | Required, Alpha Numeric
+videoCodecOptions.maxReferenceFrames | Required if videoCodec equal to libx264, Between (0, 16)
+videoCodecOptions.level | Required if videoCodec equal to libx264, Enumerated Strings ('1', '1b', '1.1', '1.2', '1.3', '2', '2.1', '2.2', '3', '3.1', '3.2', '4', '4.1')
+
+### Live Transcoding Template Validations
+
+Extends <a href="#video-transcoding-template-validations">Video Transcoding Template Validations</a>
+
 ## Audio Transcoding Template Object Structure
 
 ```
@@ -190,6 +210,16 @@ audioChannels | string | The number of audio channels in the output file.
 audioCodec | string | The audio codec for the output file. Valid values are libfdk_aac, mp3.
 audioSampleRate | string | The sample rate of the audio stream in the output file, in Hz.
 <b>container</b> | string | The container type for the output file. Valid values are AAC, MP3.
+
+### Audio Transcoding Template Validations
+
+Parameter | Validations
+--------- | -----------
+container | Required, Alpha Numeric
+audioCodec | Required
+audioChannels | Required, Enumerated Digits (0, 1, 2)
+audioBitrate | Required, Digits
+audioSampleRate | Required, Enumerated Digits (22050, 32000, 44100, 48000, 96000)
 
 ## Image Transcoding Template Object Structure
 ```
@@ -215,6 +245,14 @@ snapshotCount | string | Specify the total amount of thumnails to be generated, 
 <b>maxHeight</b> | string | Specify the maximum height of the image you need to generate.
 <b>maxWidth</b> | string | Specify the maximum width of the image you need to generate.
 <b>container</b> | string | The container type for the output file. Valid values are jpg, png.
+
+### Image Transcoding Template Validations
+
+Parameter | Validations
+--------- | -----------
+container | Required, Alpha Numeric
+maxWidth | Required, Between (128, 4096)
+maxHeight | Required, Between (96, 3072)
 
 ## File Object Structure
 ```
