@@ -246,4 +246,5 @@ Authorization: Bearer da7377d7bb94a7651470d01b663be032b0dab51d
 
 #### Response
 
-The Response must be empty and http status code 204 No Content
+The Response likes <a href="#list-advertising">Advertising Object</a> with additional fields of deletedAt and deletedBy.
+

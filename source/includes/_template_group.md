@@ -21,6 +21,7 @@ Authorization: Bearer 6b66868c72c570dc78a44bc1f9c7e229485434b6
   {
       "id": "56e1610786ec352a030041ab",
       "name": "Template Group 1",
+      "type": "VOD",
       "templates": [
         {
           "type": "IMAGE",
@@ -87,8 +88,9 @@ Parameter | Type | Description
 id | string | template group id
 name | string | template group title
 useByDefault | boolean | use by default option
-templates | array | <a href="#video-transcoding-template-object-structure">videoConversionTemplate</a>, <a href="#audio-transcoding-template-object-structure">audioConversionTemplate</a> or <a href="#image-transcoding-template-object-structure">imageConversionTemplate</a> each one
-options | object | <a href="#template-group-options-structure">templateGroupOptionsObject</a>
+type | enum | could be (VOD or LIVE)
+templates | array | array of <a href="#video-transcoding-template-object-structure">videoConversionTemplate</a>, <a href="#audio-transcoding-template-object-structure">audioConversionTemplate</a> , <a href="#image-transcoding-template-object-structure">imageConversionTemplate</a>
+options | object | <a href="#template-group-options-structure">templateGroupOptionsObject</a>, applicable only VOD typed templateGroup.
 creationTime | long | creation time of milliseconds
 
 ## Create Template Group
@@ -98,6 +100,7 @@ creationTime | long | creation time of milliseconds
 curl -X POST -H "Authorization: Bearer 24237266067dac7f36ad1f3bd21421d55feb9561" -H "Content-Type: application/json" 
 -d '{
       "name": "Template Group 1",
+      "type": "VOD",
       "templates": [
     	{
     	  "type": "IMAGE",
@@ -152,6 +155,7 @@ Content-Type: application/json
 
 {
   "name": "Template Group 1",
+  "type": "VOD",
   "templates": [
 	{
 	  "type": "IMAGE",
@@ -212,7 +216,7 @@ Parameter | Type | Description
 --------- | ------- | -----------
 <b>name</b> | string | template group title
 useByDefault | boolean | use by default option
-templates | array | <a href="#video-transcoding-template-object-structure">videoConversionTemplate</a>, <a href="#audio-transcoding-template-object-structure">audioConversionTemplate</a> or <a href="#image-transcoding-template-object-structure">imageConversionTemplate</a> each one
+templates | array | array of <a href="#video-transcoding-template-object-structure">videoConversionTemplate</a>, <a href="#audio-transcod ,-template-object-structure">audioConversionTemplate</a> , <a href="#image-transcoding-template-object-structure">imageConversionTemplate</a>
 options | object | <a href="#template-group-options-structure">templateGroupOptionsObject</a>
 
 #### Response Parameters
@@ -227,6 +231,7 @@ The Response likes <a href="#list-template-group">Template Group Object</a>
 curl -X PUT -H "Authorization: Bearer 24237266067dac7f36ad1f3bd21421d55feb9561" -H "Content-Type: application/json" 
   -d '{
 	"name": "Template Group 1",
+	"type": "VOD",
 	"templates": [
 	{
 	  "type": "IMAGE",
@@ -281,6 +286,7 @@ Content-Type: application/json
 
 {
   "name": "Template Group 1",
+  "type": "VOD",
   "templates": [
 	{
 	  "type": "IMAGE",
@@ -341,7 +347,7 @@ Parameter | Type | Description
 --------- | ------- | -----------
 <b>name</b> | string | template group title
 useByDefault | boolean | use by default option
-templates | array | <a href="#video-transcoding-template-object-structure">videoConversionTemplate</a>, <a href="#audio-transcoding-template-object-structure">audioConversionTemplate</a> or <a href="#image-transcoding-template-object-structure">imageConversionTemplate</a> each one
+templates | array | array of <a href="#video-transcoding-template-object-structure">videoConversionTemplate</a>, <a href="#audio-transcoding-template-object-structure">audioConversionTemplate</a> , <a href="#image-transcoding-template-object-structure">imageConversionTemplate</a>
 options | object | <a href="#template-group-options-structure">templateGroupOptionsObject</a>
 
 #### Response Parameters
@@ -369,4 +375,6 @@ Authorization: Bearer da7377d7bb94a7651470d01b663be032b0dab51d
 
 #### Response
 
-The Response must be empty and http status code 204 No Content
+The Response likes <a href="#list-template-group">Template Group Object</a> with additional fields of deletedAt and deletedBy.
+
+

@@ -23,19 +23,6 @@ Authorization: Bearer 6b66868c72c570dc78a44bc1f9c7e229485434b6
       "clientSecretOriginal": "3523f23f32f23ff32f324242",
 	  "clientId": "3523f23f32f23ff32f241442",
 	  "grantTypes": "client_credentials",
-      "privileges": [
-        "asset",
-        "transcoding_job",
-        "conversion",
-        "playlist",
-        "playout",
-        "upload",
-        "profile",
-        "category",
-        "template_group",
-        "player",
-        "account_summary"
-      ],
       "creationTime": 1433582883000
   }
 ]
@@ -59,8 +46,7 @@ Parameter | Type | Description
 id | string | client reference id
 clientId | string | client id for access
 clientSecretOriginal | string | client secret for access
-grantTypes | enumerated | only accessible <b>client_credentials</b> type
-privileges | array | (account_summary, asset, transcoding_job, poster, conversion, player, playlist, playout, user, client, upload, upload_from_url, template_group, profile, category, live, analytics, advertising) privileges each one
+grantTypes | enum | only <b>client_credentials</b> allowed for now.
 creationTime | long | creation time of milliseconds
 
 ## Create Client
@@ -69,20 +55,7 @@ creationTime | long | creation time of milliseconds
 # With shell, you can just pass the correct header with each request
 curl -X POST -H "Authorization: Bearer 24237266067dac7f36ad1f3bd21421d55feb9561" -H "Content-Type: application/json" 
   -d '{
-	    "grantTypes": "client_credentials",
-  		"privileges": [
-			"asset",
-			"transcoding_job",
-			"conversion",
-			"playlist",
-			"playout",
-			"upload",
-			"profile",
-			"category",
-			"template_group",
-			"player",
-			"account_summary"
-  		]
+	    "grantTypes": "client_credentials"
   	}' "https://api.nocvp.com/v1/client/12345ebbc757695a02012345"
 ```
 
@@ -93,20 +66,7 @@ Authorization: Bearer 5000ad6318dddf768e9689e6f909e85d334e835d
 Content-Type: application/json
 
 {
-	"grantTypes": "client_credentials",
-	"privileges": [
-		"asset",
-		"transcoding_job",
-		"conversion",
-		"playlist",
-		"playout",
-		"upload",
-		"profile",
-		"category",
-		"template_group",
-		"player",
-		"account_summary"
-	]
+	"grantTypes": "client_credentials"
 }
 ```
 
@@ -122,8 +82,7 @@ Content-Type: application/json
 
 Parameter | Type | Description
 --------- | ------- | -----------
-<b>grantTypes</b> | enumerated | only accessible <b>client_credentials</b> type
-<b>privileges</b> | array | (account_summary, asset, transcoding_job, poster, conversion, player, playlist, playout, user, client, upload, upload_from_url, template_group, profile, category, live, analytics, advertising) privileges each one
+<b>grantTypes</b> | enum | only <b>client_credentials</b> allowed for now.
 
 #### Response Parameters
 
@@ -136,20 +95,7 @@ The Response likes <a href="#list-client">Client Object</a>
 # With shell, you can just pass the correct header with each request
 curl -X PUT -H "Authorization: Bearer 24237266067dac7f36ad1f3bd21421d55feb9561" -H "Content-Type: application/json" 
     -d '{
-		"grantTypes": "client_credentials",
-		"privileges": [
-			"asset",
-			"transcoding_job",
-			"conversion",
-			"playlist",
-			"playout",
-			"upload",
-			"profile",
-			"category",
-			"template_group",
-			"player",
-			"account_summary"
-		]
+		"grantTypes": "client_credentials"
 	}' "https://api.nocvp.com/v1/client/12345ebbc757695a02012345"
 ```
 
@@ -160,20 +106,7 @@ Authorization: Bearer 5000ad6318dddf768e9689e6f909e85d334e835d
 Content-Type: application/json
 
 {
-	"grantTypes": "client_credentials",
-	"privileges": [
-		"asset",
-		"transcoding_job",
-		"conversion",
-		"playlist",
-		"playout",
-		"upload",
-		"profile",
-		"category",
-		"template_group",
-		"player",
-		"account_summary"
-	]
+	"grantTypes": "client_credentials"
 }
 ```
 
@@ -189,8 +122,7 @@ Content-Type: application/json
 
 Parameter | Type | Description
 --------- | ------- | -----------
-<b>grantTypes</b> | enumerated | only accessible <b>client_credentials</b> type
-<b>privileges</b> | array | (account_summary, asset, transcoding_job, poster, conversion, player, playlist, playout, user, client, upload, upload_from_url, template_group, profile, category, live, analytics, advertising) privileges each one
+<b>grantTypes</b> | enum | only <b>client_credentials</b> allowed for now.
 
 #### Response Parameters
 
@@ -217,4 +149,4 @@ Authorization: Bearer da7377d7bb94a7651470d01b663be032b0dab51d
 
 #### Response
 
-The Response must be empty and http status code 204 No Content
+The Response likes <a href="#list-client">Client Object</a> with additional fields of deletedAt and deletedBy.

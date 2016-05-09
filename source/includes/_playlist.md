@@ -52,12 +52,12 @@ Parameter | Type | Description
 id | string | playlist id
 sid | string | playlist short id
 title | string | playlist title
-type | enumerated | (MATCHING_TAGS or MANUAL)
+type | enum | (MATCHING_TAGS or MANUAL)
 tags | array | asset tag each one
 items | array | <a href="#playlist-item-object-structure">playlistItemObject</a> each one
-privacy | enumerated | (PUBLIC or PRIVACY)
-tagFilterType | enumerated | (ANY or ALL) any tag matching or all tags matching required
-order | enumerated | (CREATION_DATE_DESC, CREATION_DATE_ASC, VIEWS_DESC, VIEWS_ASC)
+privacy | enum | (PUBLIC or PRIVACY)
+tagFilterType | enum | (ANY or ALL) any tag matching or all tags matching required
+order | enum | (CREATION_DATE_DESC, CREATION_DATE_ASC, VIEWS_DESC, VIEWS_ASC)
 limit | integer | Limit of playlist asset list. Min 1, Max 16
 creationTime | long | creation time of milliseconds
 
@@ -107,12 +107,12 @@ Content-Type: application/json
 Parameter | Type | Description
 --------- | ------- | -----------
 <b>title</b> | string | playlist title
-<b>type</b> | enumerated | (MATCHING_TAGS or MANUAL)
+<b>type</b> | enum | (MATCHING_TAGS or MANUAL)
 tags | array | required if type is MATCHING_TAGS
 items | array | required if type is MANUAL, must object and keys must be assetId and sort each one
-privacy | enumerated | (PUBLIC or PRIVACY)
-tagFilterType | enumerated |  required if type is MATCHING_TAGS (ANY or ALL) any tag matching or all tags matching required
-order | enumerated | (CREATION_DATE_DESC, CREATION_DATE_ASC, VIEWS_DESC, VIEWS_ASC)
+privacy | enum | (PUBLIC or PRIVACY)
+tagFilterType | enum |  required if type is MATCHING_TAGS (ANY or ALL) any tag matching or all tags matching required
+order | enum | (CREATION_DATE_DESC, CREATION_DATE_ASC, VIEWS_DESC, VIEWS_ASC)
 limit | integer | Limit of playlist asset list. Min 1, Max 16
 
 #### Response Parameters
@@ -166,12 +166,12 @@ Content-Type: application/json
 Parameter | Type | Description
 --------- | ------- | -----------
 <b>title</b> | string | playlist title
-<b>type</b> | enumerated | (MATCHING_TAGS or MANUAL)
+<b>type</b> | enum | (MATCHING_TAGS or MANUAL)
 tags | array | required if type is MATCHING_TAGS
 items | array | required if type is MANUAL, must object and keys must be assetId and sort each one
-privacy | enumerated | (PUBLIC or PRIVACY)
-tagFilterType | enumerated |  required if type is MATCHING_TAGS (ANY or ALL) any tag matching or all tags matching required
-order | enumerated | (CREATION_DATE_DESC, CREATION_DATE_ASC, VIEWS_DESC, VIEWS_ASC)
+privacy | enum | (PUBLIC or PRIVACY)
+tagFilterType | enum |  required if type is MATCHING_TAGS (ANY or ALL) any tag matching or all tags matching required
+order | enum | (CREATION_DATE_DESC, CREATION_DATE_ASC, VIEWS_DESC, VIEWS_ASC)
 limit | integer | Limit of playlist asset list. Min 1, Max 16
 
 #### Response Parameters
@@ -199,4 +199,5 @@ Authorization: Bearer da7377d7bb94a7651470d01b663be032b0dab51d
 
 #### Response
 
-The Response must be empty and http status code 204 No Content
+The Response likes <a href="#list-playlist">Playlist Object</a> with additional fields of deletedAt and deletedBy.
+

@@ -76,11 +76,6 @@ Authorization: Bearer 6b66868c72c570dc78a44bc1f9c7e229485434b6
       "error": true,
       "fullscreen": true
     },
-    "techs": [
-      "html5",
-      "hls",
-      "flash"
-    ],
     "playlistAutoPlayNext": true,
     "playlistRepeat": true,
     "playlistShuffle": true,
@@ -110,33 +105,32 @@ Parameter | Type | Description
 id | string | player id
 sid | string | player sid
 name | string | player title
-playButton | boolean | show play button status
-muteButton | boolean | show mute button status
-playBar | boolean | show play bar status
-volumeControl | boolean | show volume control status
-fullScreen | boolean | show full screen button status
-autoPlay | boolean | auto play status
-controls | boolean | show control buttons status
-timeBar | boolean | show time bar status
+playButton | boolean | show play button
+muteButton | boolean | show mute button
+playBar | boolean | show play bar
+volumeControl | boolean | show volume control
+fullScreen | boolean | show full screen button
+autoPlay | boolean | auto plays on load if true
+controls | boolean | show controls
+timeBar | boolean | show time bar
 socialButtons | object | <a href="#social-buttons-object-structure">socialButtonsObject</a>
-timeRemaining | boolean | show time remaining status
+timeRemaining | boolean | show remaining time
 iconColor | string | for example "#FFDDAA" or "rgba(98,151,181,0.8)"
 progressColor | string | for example "#FFDDAA" or "rgba(98,151,181,0.8)"
 bgColor | string | for example "#FFDDAA" or "rgba(98,151,181,0.8)"
-skin | enumerated | (skin1, skin2, skin3)
+skin | enum | (skin1, skin2, skin3)
 logo | string | image asset reference sid 
 fontSize | integer | font size pixel
-logoPosition | enumerated | (TOP_LEFT, TOP_RIGHT, BOTTOM_LEFT, BOTTOM_RIGHT) 
-privacy | enumerated | (PUBLIC or PRIVATE)
+logoPosition | enum | (TOP_LEFT, TOP_RIGHT, BOTTOM_LEFT, BOTTOM_RIGHT) 
+privacy | enum | (PUBLIC or PRIVATE)
 ads | object | <a href="#player-ads-object-structure">adsObject</a>
 googleAnalytics | string | google analytics id
 googleAnalyticsEvents | object | <a href="#player-google-analytics-object-structure">googleAnalyticsObject</a>
-techs | array | (html5, hls, flash) strings each one 
 playlistAutoPlayNext | boolean | auto play next video on playlist
 playlistRepeat | boolean | auto repeat playlist
 playlistShuffle | boolean | playlist shuffle
-endScreen | enumerated | (DISABLED, RELATED, SOCIAL, CUSTOM) 
-endScreenContent | string | video end screen content
+endScreen | enum | (DISABLED, RELATED, SOCIAL, CUSTOM) 
+endScreenContent | string | video end screen content, this content displayed on video ends when endScreen parameter is set to CUSTOM
 creationTime | long | creation time of milliseconds
 
 ## Create Player
@@ -185,11 +179,6 @@ curl -X POST -H "Authorization: Bearer 24237266067dac7f36ad1f3bd21421d55feb9561"
       "error": true,
       "fullscreen": true
     },
-    "techs": [
-      "html5",
-      "hls",
-      "flash"
-    ],
     "playlistAutoPlayNext": true,
     "playlistRepeat": true,
     "playlistShuffle": true,
@@ -246,11 +235,6 @@ Content-Type: application/json
       "error": true,
       "fullscreen": true
     },
-    "techs": [
-      "html5",
-      "hls",
-      "flash"
-    ],
     "playlistAutoPlayNext": true,
     "playlistRepeat": true,
     "playlistShuffle": true,
@@ -273,33 +257,32 @@ Content-Type: application/json
 Parameter | Type | Description
 --------- | ------- | -----------
 <b>name</b> | string | player title
-playButton | boolean | show play button status
-muteButton | boolean | show mute button status
-playBar | boolean | show play bar status
-volumeControl | boolean | show volume control status
-fullScreen | boolean | show full screen button status
-autoPlay | boolean | auto play status
-controls | boolean | show control buttons status
-timeBar | boolean | show time bar status
+playButton | boolean | show play button
+muteButton | boolean | show mute button
+playBar | boolean | show play bar
+volumeControl | boolean | show volume control
+fullScreen | boolean | show full screen button
+autoPlay | boolean | auto plays on load if true
+controls | boolean | show controls
+timeBar | boolean | show time bar
 socialButtons | object | <a href="#social-buttons-object-structure">socialButtonsObject</a>
-timeRemaining | boolean | show time remaining status
+timeRemaining | boolean | show remaining time
 iconColor | string | for example "#FFDDAA" or "rgba(98,151,181,0.8)"
 progressColor | string | for example "#FFDDAA" or "rgba(98,151,181,0.8)"
 bgColor | string | for example "#FFDDAA" or "rgba(98,151,181,0.8)"
-skin | enumerated | (skin1, skin2, skin3)
+skin | enum | (skin1, skin2, skin3)
 logo | string | image asset reference sid 
 fontSize | integer | font size pixel
-logoPosition | enumerated | (TOP_LEFT, TOP_RIGHT, BOTTOM_LEFT, BOTTOM_RIGHT) 
-privacy | enumerated | (PUBLIC or PRIVATE)
+logoPosition | enum | (TOP_LEFT, TOP_RIGHT, BOTTOM_LEFT, BOTTOM_RIGHT) 
+privacy | enum | (PUBLIC or PRIVATE)
 ads | object | Advertising reference id
 googleAnalytics | string | google analytics id
 googleAnalyticsEvents | object | <a href="#player-google-analytics-object-structure">googleAnalyticsObject</a>
-techs | array | (html5, hls, flash) strings each one 
 playlistAutoPlayNext | boolean | auto play next video on playlist
 playlistRepeat | boolean | auto repeat playlist
 playlistShuffle | boolean | playlist shuffle
-endScreen | enumerated | (DISABLED, RELATED, SOCIAL, CUSTOM) 
-endScreenContent | string | video end screen content
+endScreen | enum | (DISABLED, RELATED, SOCIAL, CUSTOM) 
+endScreenContent | string | video end screen content, this content displayed on video ends when endScreen parameter is set to CUSTOM
 
 #### Response Parameters
 
@@ -351,11 +334,6 @@ curl -X PUT -H "Authorization: Bearer 24237266067dac7f36ad1f3bd21421d55feb9561" 
       "error": true,
       "fullscreen": true
     },
-    "techs": [
-      "html5",
-      "hls",
-      "flash"
-    ],
     "playlistAutoPlayNext": true,
     "playlistRepeat": true,
     "playlistShuffle": true,
@@ -412,11 +390,6 @@ Content-Type: application/json
       "error": true,
       "fullscreen": true
     },
-    "techs": [
-      "html5",
-      "hls",
-      "flash"
-    ],
     "playlistAutoPlayNext": true,
     "playlistRepeat": true,
     "playlistShuffle": true,
@@ -439,33 +412,32 @@ Content-Type: application/json
 Parameter | Type | Description
 --------- | ------- | -----------
 <b>name</b> | string | player title
-playButton | boolean | show play button status
-muteButton | boolean | show mute button status
-playBar | boolean | show play bar status
-volumeControl | boolean | show volume control status
-fullScreen | boolean | show full screen button status
-autoPlay | boolean | auto play status
-controls | boolean | show control buttons status
-timeBar | boolean | show time bar status
+playButton | boolean | show play button
+muteButton | boolean | show mute button
+playBar | boolean | show play bar
+volumeControl | boolean | show volume control
+fullScreen | boolean | show full screen button
+autoPlay | boolean | auto plays on load if true
+controls | boolean | show controls
+timeBar | boolean | show time bar
 socialButtons | object | <a href="#social-buttons-object-structure">socialButtonsObject</a>
-timeRemaining | boolean | show time remaining status
+timeRemaining | boolean | show remaining time
 iconColor | string | for example "#FFDDAA" or "rgba(98,151,181,0.8)"
 progressColor | string | for example "#FFDDAA" or "rgba(98,151,181,0.8)"
 bgColor | string | for example "#FFDDAA" or "rgba(98,151,181,0.8)"
-skin | enumerated | (skin1, skin2, skin3)
+skin | enum | (skin1, skin2, skin3)
 logo | string | image asset reference sid 
 fontSize | integer | font size pixel
-logoPosition | enumerated | (TOP_LEFT, TOP_RIGHT, BOTTOM_LEFT, BOTTOM_RIGHT) 
-privacy | enumerated | (PUBLIC or PRIVATE)
+logoPosition | enum | (TOP_LEFT, TOP_RIGHT, BOTTOM_LEFT, BOTTOM_RIGHT) 
+privacy | enum | (PUBLIC or PRIVATE)
 ads | object | Advertising reference id
 googleAnalytics | string | google analytics id
 googleAnalyticsEvents | object | <a href="#player-google-analytics-object-structure">googleAnalyticsObject</a>
-techs | array | (html5, hls, flash) strings each one 
 playlistAutoPlayNext | boolean | auto play next video on playlist
 playlistRepeat | boolean | auto repeat playlist
 playlistShuffle | boolean | playlist shuffle
-endScreen | enumerated | (DISABLED, RELATED, SOCIAL, CUSTOM) 
-endScreenContent | string | video end screen content
+endScreen | enum | (DISABLED, RELATED, SOCIAL, CUSTOM) 
+endScreenContent | string | video end screen content, this content displayed on video ends when endScreen parameter is set to CUSTOM
 
 #### Response Parameters
 
@@ -492,4 +464,5 @@ Authorization: Bearer da7377d7bb94a7651470d01b663be032b0dab51d
 
 #### Response
 
-The Response must be empty and http status code 204 No Content
+The Response likes <a href="#list-players">Player Object</a> with additional fields of deletedAt and deletedBy.
+

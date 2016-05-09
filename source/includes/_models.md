@@ -177,12 +177,12 @@ Parameter | Validations
 videoCodec | Required
 maxWidth | Required, Between (128, 4096)
 maxHeight | Required, Between (96, 3072)
-frameRate | Required, Enumerated Alpha Numeric Chars ('auto', '10', '15', '23.97', '24', '25', '29.97', '30', '50', '60')
+frameRate | Required, enum Alpha Numeric Chars ('auto', '10', '15', '23.97', '24', '25', '29.97', '30', '50', '60')
 videoBitrate | Required if rateControl equal to targetBitrate, Between (16, 62500)
 constantRatefactor | Required if rateControl equal to constantQuality, Between (15, 45)
 videoCodecOptions.profile | Required, Alpha Numeric
 videoCodecOptions.maxReferenceFrames | Required if videoCodec equal to libx264, Between (0, 16)
-videoCodecOptions.level | Required if videoCodec equal to libx264, Enumerated Strings ('1', '1b', '1.1', '1.2', '1.3', '2', '2.1', '2.2', '3', '3.1', '3.2', '4', '4.1')
+videoCodecOptions.level | Required if videoCodec equal to libx264, enum Strings ('1', '1b', '1.1', '1.2', '1.3', '2', '2.1', '2.2', '3', '3.1', '3.2', '4', '4.1')
 
 ### Live Transcoding Template Validations
 
@@ -217,9 +217,9 @@ Parameter | Validations
 --------- | -----------
 container | Required, Alpha Numeric
 audioCodec | Required
-audioChannels | Required, Enumerated Digits (0, 1, 2)
+audioChannels | Required, enum Digits (0, 1, 2)
 audioBitrate | Required, Digits
-audioSampleRate | Required, Enumerated Digits (22050, 32000, 44100, 48000, 96000)
+audioSampleRate | Required, enum Digits (22050, 32000, 44100, 48000, 96000)
 
 ## Image Transcoding Template Object Structure
 ```
@@ -272,10 +272,10 @@ Parameter | Type | Description
 --------- | ------- | -----------
 id | string | file reference id
 sid | string | file reference short id
-type | enumerated | IMAGE|AUDIO|VIDEO|OTHER
+type | enum | IMAGE|AUDIO|VIDEO|OTHER
 size | 210606 | file size of bytes
 tags | array | file tags
-status | enumerated | status of file
+status | enum | status of file
 container | string | file extension mp4, ts, jpg, png, bmp ...etc
 contentType | string | file mime type for example: video/mp4, audio/aac, image/jpeg, image/png
 creationTime | long | creation time of milliseconds
@@ -382,7 +382,7 @@ template | object | <a href="#video-transcoding-template-object-structure">video
 creationTime | long | creation time of milliseconds
 startTime | long | job start time of milliseconds
 lastUpdatedTime | long | job updated time of milliseconds
-state | enumerated | (QUEUE,STARTED,PROGRESSING,COMPLETE,WARNING,ERROR,CANCELED,TIMEOUT)
+state | enum | (QUEUE,STARTED,PROGRESSING,COMPLETE,WARNING,ERROR,CANCELED,TIMEOUT)
 progress | float | job progressing percentage 0 to 100
 errorCode | string | if throws an error
 errorMessage | string | if throws an error
@@ -437,7 +437,7 @@ uri | string | ads uri
 ```
 Parameter | Type | Description
 --------- | ------- | -----------
-breakType | enumerated | (LINEAR, NON_LINEAR, DISPLAY)
+breakType | enum | (LINEAR, NON_LINEAR, DISPLAY)
 timeOffset | string | time offset
 allowMultipleAds | boolean | allowed multiple ads if true
 followRedirects | boolean | following uri redirects
@@ -465,7 +465,7 @@ Parameter | Type | Description
 id | string | ads id
 sid | string | ads short id
 title | string | ads title
-type | enumerated | (URI or CUSTOM)
+type | enum | (URI or CUSTOM)
 adTagUri | array | <a href="#player-ads-ad-tag-uri-object-structure">adTagUriObject</a> each one
 adBreaks | array | <a href="#player-ads-ad-break-object-structure">adBreakObject</a> each one
 creationTime | long | creation time of milliseconds
@@ -548,7 +548,7 @@ tags | array | tag each one
 viewCounts | long | view counts of asset
 referenceId | string | your reference id
 referenceUrl | string | your reference url youtube, daily motion, another ...etc
-deliveryStatus | enumerated | (ACTIVE, PASSIVE or SUSPENDED)
+deliveryStatus | enum | (ACTIVE, PASSIVE or SUSPENDED)
 source | object | <a href="#image-file-object-structure-extends-file-object-structure">imageFile</a> , <a href="#video-file-object-structure-extends-file-object-structure">videoFile</a>, <a href="#audio-file-object-structure-extends-file-object-structure">audioFile</a>, <a href="#live-source-object-structure">liveSource</a>, <a href="#live-event-source-object-structure">liveEventSource</a>, <a href="#live-pull-source-object-structure">livePullSource</a> object
 creationTime | long | creation time of milliseconds
 

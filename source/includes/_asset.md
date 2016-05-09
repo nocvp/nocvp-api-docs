@@ -183,7 +183,7 @@ Parameter | Type | Description
 limit | integer | Limit of asset list. Min 1, Max 200
 offset | integer | offset of asset list.
 sourceStreamName | string | source stream name of live or live events
-sourceType | enumerated (VIDEO,AUDIO,IMAGE,OTHER,LIVE,LIVE_EVENT) | source type of asset
+sourceType | enum | source type of asset, could be one of (VIDEO,AUDIO,IMAGE,OTHER,LIVE,LIVE_EVENT)
 sid | string | asset short id
 category | array | asset category ids for example: &category[]=category1Id&category[]=category2Id
 referenceId | string | your reference id
@@ -213,12 +213,12 @@ poster | <a href="#image-file-object-structure-extends-file-object-structure">im
 jobs | array | <a href="#transcoding-job-object-structure">transcodingJob</a> Object each one
 conversions | array | <a href="#image-file-object-structure-extends-file-object-structure">imageFile</a> , <a href="#video-file-object-structure-extends-file-object-structure">videoFile</a> or <a href="#audio-file-object-structure-extends-file-object-structure">audioFile</a> object each one
 source | object | <a href="#image-file-object-structure-extends-file-object-structure">imageFile</a> , <a href="#video-file-object-structure-extends-file-object-structure">videoFile</a>, <a href="#audio-file-object-structure-extends-file-object-structure">audioFile</a>, <a href="#live-source-object-structure">liveSource</a>, <a href="#live-event-source-object-structure">liveEventSource</a>, <a href="#live-pull-source-object-structure">livePullSource</a> object
-privacy | enumerated | (PUBLIC or PRIVATE)
+privacy | enum | (PUBLIC or PRIVATE)
 published | boolean | published status of live sources
 viewCounts | long | view counts of asset
 referenceId | string | your reference id
 referenceUrl | string | your reference url youtube, daily motion, another ...etc
-deliveryStatus | enumerated | (ACTIVE, PASSIVE or SUSPENDED)
+deliveryStatus | enum | (ACTIVE, PASSIVE or SUSPENDED)
 creationTime | long | creation time of milliseconds
 
 ## Update Asset
@@ -264,7 +264,7 @@ Content-Type: application/json
 Parameter | Type | Description
 --------- | ------- | -----------
 title | string | asset title
-privacy | enumerated | privacy (PUBLIC or PRIVATE)
+privacy | enum | privacy (PUBLIC or PRIVATE)
 category | string | category reference id
 description | string | asset description
 tags | array | asset tags
@@ -295,11 +295,10 @@ Authorization: Bearer da7377d7bb94a7651470d01b663be032b0dab51d
 
 #### Response
 
-The Response must be empty and http status code 204 No Content
-
+The Response likes <a href="#list-assets">Asset Object</a> with additional fields of deletedAt and deletedBy.
 
 ## Poster Upload
 
-set to isPoster true and set asset reference id
+Poster upload process is almost same with add media flow, only difference is setting isPoster to true and asset or category fields.
 
-You need to the <a href="#add-media">upload flow</a>
+Have a look to <a href="#add-media">add media flow.</a>

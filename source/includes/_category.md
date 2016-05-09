@@ -90,7 +90,7 @@ Content-Type: application/json
 
 Parameter | Type | Description
 --------- | ------- | -----------
-<b>title</b> | string | ads title
+<b>title</b> | string | category title
 
 #### Response Parameters
 
@@ -130,7 +130,7 @@ Content-Type: application/json
 
 Parameter | Type | Description
 --------- | ------- | -----------
-<b>title</b> | string | ads title
+<b>title</b> | string | category title
 
 #### Response Parameters
 
@@ -157,11 +157,10 @@ Authorization: Bearer da7377d7bb94a7651470d01b663be032b0dab51d
 
 #### Response
 
-The Response must be empty and http status code 204 No Content
-
+The Response likes <a href="#list-category">Category Object</a> with additional fields of deletedAt and deletedBy.
 
 ## Poster Upload
 
-set to isPoster true and set category reference id
+Poster upload process is almost same with add media flow, only difference is setting isPoster to true and asset or category fields.
 
-You need to the <a href="#add-media">upload flow</a>
+Have a look to <a href="#add-media">add media flow.</a>
