@@ -69,7 +69,7 @@ textLine2.text | string | your text here
     "startTime": 1458737637473,
     "state": "PROGRESSING",
     "template": {
-        "audioBitrate": "128k",
+        "audioBitrate": 128,
         "audioChannels": 2,
         "audioCodec": "libfdk_aac",
         "audioSampleRate": 44100,
@@ -82,13 +82,13 @@ textLine2.text | string | your text here
         "id": "56e6c43000ddb33a5c8b4b14",
         "maxBitRate": null,
         "maxHeight": 480,
-        "max_width": 854,
+        "maxWidth": 854,
         "maximumNumberOfFramesBetweenKeyframes": null,
         "rateControl": "targetBitrate",
         "replacing": null,
         "transmuxToHls": null,
         "type": "VIDEO",
-        "videoBitrate": "1200k",
+        "videoBitrate": 1200,
         "videoCodec": "libx264",
         "videoCodecOptions": {},
         "videoMaxFrameRate": null
@@ -115,7 +115,7 @@ template | mixes | template object
 ## Video Transcoding Template Object Structure
 ```
 {
-        "audioBitrate": "128k",
+        "audioBitrate": 128,
         "audioChannels": 2,
         "audioCodec": "libfdk_aac",
         "audioSampleRate": 44100,
@@ -128,13 +128,13 @@ template | mixes | template object
         "id": "56e6c43000ddb33a5c8b4b14",
         "maxBitRate": null,
         "maxHeight": 480,
-        "max_width": 854,
+        "maxWidth": 854,
         "maximumNumberOfFramesBetweenKeyframes": null,
         "rateControl": "targetBitrate",
         "replacing": null,
-        "transmuxToHls": null,
+        "transmuxToHls": false,
         "type": "VIDEO",
-        "videoBitrate": "1200k",
+        "videoBitrate": 1200,
         "videoCodec": "libx264",
         "videoCodecOptions": {
             "level": "3.1", 
@@ -147,26 +147,31 @@ template | mixes | template object
 Parameter | Type | Description
 --------- | ------- | -----------
 id | string | template id
-<b>type</b> | enum | template type, could be VIDEO AUDIO IMAGE
-audioBitrate | string | The bit rate of the audio stream in the output file, in kilobits/second. Specify a value between 64k and 320k.
+<b>type</b> | enum | template type, could be VIDEO, AUDIO, IMAGE or LIVE.
+<b>maxWidth</b> | number | The maximum width of the output video in pixels. Set an even integer between 128 and 4096. This template will be ignored in case width of the source video is less than the specified value unless allowScaleUp parameter is set to true.
+<b>maxHeight</b> | number | The maximum height of the output video in pixels. Set an even integer between 96 and 3072. This template will be ignored in case height of the source video is less than the specified value unless allowScaleUp parameter is set to true.
+allowScaleUp | boolean | When set to false template gets ignored in case the source video resolution requires to be scaled up at the given parameters of maxWidth and maxHeight. When set to true, template gets forced to process the given parameters of maxWidth and maxHeight. 
+container | string | The container type for the output file. Valid values are MP4, WEBM, HLS.
+transmuxToHls | boolean | Applicable only MP4 container is selected. When set to true an additional transcoding job is created to generate hls segments.
+videoCodec | string | The video codec for the output file. Valid values are libx264, and vp8.
+rateControl | string | You can configure variable bit rate or constant bit rate encoding, valid values are constantQuality, targetBitrate.
+constantRatefactor | number | Specify in case constantQuality is selected on rateControl parameter.
+videoBitrate | number | The kilobit rate of the audio stream in the output file, in kilobits/second. Specify a value between 16 and 8092.
+videoCodecOptions | object | Applicable only when videoCodec is libx264 or vp8. 
+videoCodecOptions.profile | string | Specify h264 or vp8 codec encoding profile. Specify the following profiles for H264 : baseline: The profile most commonly used for mobile applications. main: The profile used for standard-definition digital TV broadcasts. high: The profile used for high-definition digital TV broadcasts.When the video codec is VP8 possible values are 0, 1, 2, and 3.
+videoCodecOptions.level | string | The H.264 level that you want to use for the output video. 
+videoCodecOptions.maxReferenceFrames | string | The maximum number of previously decoded frames to use as a reference for decoding future frames.
+fixedNumberOfFramesBetweenKeyframes | boolean | Whether to use a fixed value for maximumNumberOfFramesBetweenKeyframes. Yes: Transcoder uses the value of maximumNumberOfFramesBetweenKeyframes for the distance between key frames (the number of frames in a group of pictures, or GOP). No: The distance between key frames can vary.
+maximumNumberOfFramesBetweenKeyframes | number | aka keyframe interval, sets the maximum number of frames between each keyframe. Specifying a keyframe interval will allow you to create more or less keyframes in your video. For example, a value of 100 will create a keyframe every 100 frames.
+bufferSize | number | The maximum number of kilobits in any x seconds of the output video. 
+maxBitRate | number | The maximum number of kilobits per second in the output video. Specify a value between 16 and 8092.
+<b>frameRate</b> | string | The frames per second for the video stream in the output video. Could be one of auto, 10, 15, 23.97, 24, 25, 29.97, 50, or 60.
+videoMaxFrameRate | number | Transcoder uses the frame rate of the input video for the frame rate of the output video up to specified value for videoMaxFrameRate. 
+audioSampleRate | string | The sample rate of the audio stream in the output file, in Hz.
+audioBitrate | number | The kilobit rate of the audio stream in the output file, in kilobits/second. Specify a value between 64 and 320.
 audioChannels | string | The number of audio channels in the output file.
 audioCodec | string | The audio codec for the output file. Valid values are libfdk_aac, mp3.
-audioSampleRate | string | The sample rate of the audio stream in the output file, in Hz.
-bufferSize | string | The maximum number of kilobits in any x seconds of the output video. 
-rateControl | string | You can configure variable bit rate or constant bit rate encoding, valid values are constantQuality, targetBitrate.
-constantRatefactor | number | specify in case constantQuality is selected on rateControl parameter.
-maxBitRate | string | The maximum number of kilobits per second in the output video. Specify a value between 16k and 8092k.
-container | string | The container type for the output file. Valid values are MP4, WEBM, HLS.
 creationTime | number | job creation time in seconds since the Unix epoch
-fixedNumberOfFramesBetweenKeyframes | boolean | Whether to use a fixed value for maximumNumberOfFramesBetweenKeyframes.
-frameRate | number | The frames per second for the video stream in the output video.
-maxHeight | string | error message if job is failed
-maximumNumberOfFramesBetweenKeyframes | mixes | template object
-transmuxToHls | boolean | setting this value to true lets the api to generate a second dependant job in order to transmux to hls.
-videoBitrate | string | The bit rate of the audio stream in the output file, in kilobits/second. Specify a value between 16k and 8092k.
-videoCodec | string | The video codec for the output file. Valid values are libx264, and vp8.
-videoCodecOptions | mixes | Applicable only when the value of videoCodec is libx264. 
-videoMaxFrameRate | mixes | Api uses the frame rate of the input video for the frame rate of the output video, up to the maximum frame rate. 
 
 ### Video Transcoding Template Validations
 
@@ -178,11 +183,59 @@ videoCodec | Required
 maxWidth | Required, Between (128, 4096)
 maxHeight | Required, Between (96, 3072)
 frameRate | Required, enum Alpha Numeric Chars ('auto', '10', '15', '23.97', '24', '25', '29.97', '30', '50', '60')
-videoBitrate | Required if rateControl equal to targetBitrate, Between (16, 62500)
+videoBitrate | Required if rateControl equal to targetBitrate, Between (16, 8092)
 constantRatefactor | Required if rateControl equal to constantQuality, Between (15, 45)
-videoCodecOptions.profile | Required, Alpha Numeric
+videoCodecOptions.profile | Required if videoCodec equal to libx264, could be one of 'baseline', 'main', 'high'
 videoCodecOptions.maxReferenceFrames | Required if videoCodec equal to libx264, Between (0, 16)
-videoCodecOptions.level | Required if videoCodec equal to libx264, enum Strings ('1', '1b', '1.1', '1.2', '1.3', '2', '2.1', '2.2', '3', '3.1', '3.2', '4', '4.1')
+videoCodecOptions.level | Required if videoCodec equal to libx264, could be one of '1', '1b', '1.1', '1.2', '1.3', '2', '2.1', '2.2', '3', '3.1', '3.2', '4', '4.1'
+
+## Live Transcoding Template Object Structure
+```
+{
+        "audioBitrate": 128,
+        "audioChannels": 2,
+        "audioCodec": "libfdk_aac",
+        "audioSampleRate": 44100,
+        "constantRatefactor": 23,
+        "creationTime": 1457964080907,
+        "fixedNumberOfFramesBetweenKeyframes": true,
+        "frameRate": "29.97",
+        "maxBitRate": null,
+        "maxHeight": 480,
+        "maxWidth": 854,
+        "maximumNumberOfFramesBetweenKeyframes": null,
+        "rateControl": "constantQuality",
+        "type": "LIVE",
+        "videoCodec": "libx264",
+        "videoCodecOptions": {
+            "level": "3.1", 
+            "maxReferenceFrames": "6", 
+            "profile": "main"
+        }
+    }
+```
+Parameter | Type | Description
+--------- | ------- | -----------
+id | string | template id
+<b>type</b> | enum | template type, could be VIDEO, AUDIO, IMAGE or LIVE.
+<b>maxWidth</b> | number | The maximum width of the output video in pixels. Set an even integer between 128 and 4096. This template will be ignored in case width of the source video is less than the specified value.
+<b>maxHeight</b> | number | The maximum height of the output video in pixels. Set an even integer between 96 and 3072. This template will be ignored in case height of the source video is less than the specified value.
+videoCodec | string | The video codec for the output file. libx264 is mandatory.
+rateControl | string | At live template this value is fixed as "constantQuality".
+constantRatefactor | number | At live template this value is fixed as 23.
+videoCodecOptions | object | Applicable only when videoCodec is libx264. 
+videoCodecOptions.profile | string | Specify h264 codec encoding profile. Specify the following profiles for H264 : baseline: The profile most commonly used for mobile applications. main: The profile used for standard-definition digital TV broadcasts. high: The profile used for high-definition digital TV broadcasts.
+videoCodecOptions.level | string | The H.264 level that you want to use for the output video. 
+videoCodecOptions.maxReferenceFrames | string | The maximum number of previously decoded frames to use as a reference for decoding future frames.
+fixedNumberOfFramesBetweenKeyframes | boolean | At live template this value is fixed as true.
+maximumNumberOfFramesBetweenKeyframes | number | aka keyframe interval, sets the maximum number of frames between each keyframe. Specifying a keyframe interval will allow you to create more or less keyframes in your video. For example, a value of 100 will create a keyframe every 100 frames.
+maxBitRate | number | The maximum number of kilobits per second in the output video. Specify a value between 16 and 8092.
+<b>frameRate</b> | string | The frames per second for the video stream in the output video. Could be one of auto, 10, 15, 23.97, 24, 25, 29.97, 50, or 60.
+audioSampleRate | string | The sample rate of the audio stream in the output file, in Hz.
+audioBitrate | number | The kilobit rate of the audio stream in the output file, in kilobits/second. Specify a value between 64 and 320.
+audioChannels | string | The number of audio channels in the output file.
+audioCodec | string | The audio codec for the output file. libfdk_aac is mandatory.
+creationTime | number | job creation time in seconds since the Unix epoch
 
 ### Live Transcoding Template Validations
 
@@ -192,7 +245,7 @@ Extends <a href="#video-transcoding-template-validations">Video Transcoding Temp
 
 ```
 {
-    "audioBitrate":"64k",
+    "audioBitrate":64,
     "audioChannels":2,
     "audioCodec":"libfdk_aac",
     "audioSampleRate":44000,
@@ -237,20 +290,20 @@ audioSampleRate | Required, enum Digits (22050, 32000, 44100, 48000, 96000)
 Parameter | Type | Description
 --------- | ------- | -----------
 id | string | template id
-<b>type</b> | enum | template type, could be VIDEO AUDIO IMAGE
-singleSnapshotSecond | number | Specify if one thumbail is required at spesific duration of video.
-snapshotIntervalSecond | string | Specify an interval duration to capture thumbnails from video.
-stripeIntervalSecond | string | Specify an interval duration to generate sprite images used on the player scrub bar.
-snapshotCount | string | Specify the total amount of thumnails to be generated, api decices where to cut the video.
-<b>maxHeight</b> | string | Specify the maximum height of the image you need to generate.
-<b>maxWidth</b> | string | Specify the maximum width of the image you need to generate.
-<b>container</b> | string | The container type for the output file. Valid values are jpg, png.
+<b>type</b> | enum | template type, set to IMAGE for image generation.
+singleSnapshotSecond | number | Specify if one thumbail is required at specific duration of video. Keep blank if you want transcoder to ignore this.
+snapshotIntervalSecond | number | Specify an interval duration to capture thumbnails from video. Keep blank if you want transcoder to ignore this. 
+stripeIntervalSecond | number | Specify an interval duration to generate sprite images used on the player scrub bar. Keep blank if you want transcoder to ignore this.
+snapshotCount | number | Specify the total amount of thumnails to be generated, api decices where to cut the video. Keep blank if you want transcoder to ignore this.
+<b>maxHeight</b> | number | Specify the maximum height of the image you need to generate.
+<b>maxWidth</b> | number | Specify the maximum width of the image you need to generate.
+<b>container</b> | enum | The container type for the output file. Valid values are jpg, png.
 
 ### Image Transcoding Template Validations
 
 Parameter | Validations
 --------- | -----------
-container | Required, Alpha Numeric
+container | Required, Valid values are jpg, png.
 maxWidth | Required, Between (128, 4096)
 maxHeight | Required, Between (96, 3072)
 
@@ -344,12 +397,12 @@ audioSampleRate | float | sample rate of audio for example 44.100
     "id": "56f3f28500ddb372068b516d",
     "template": {
       "type": "VIDEO",
-      "audioBitrate": "128k",
+      "audioBitrate": 128,
       "audioChannels": 2,
       "audioCodec": "libfdk_aac",
       "audioSampleRate": 44100,
       "frameRate": "29.97",
-      "videoBitrate": "1200k",
+      "videoBitrate": 1200,
       "videoCodec": "libx264",
       "transmuxToHls": null,
       "bufferSize": null,
